@@ -1,0 +1,103 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Pruebas.Cliente
+build_property.RootNamespace = Pruebas.Cliente
+build_property.ProjectDir = C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\Pruebas.Cliente\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\Pruebas.Cliente
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Personal/PersonalIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWxcUGVyc29uYWxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Personal/PersonalIndexJson.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWxcUGVyc29uYWxJbmRleEpzb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Producto/ActualizarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQWN0dWFsaXphclByb2R1Y3RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Producto/AgregarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQWdyZWdhclByb2R1Y3RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Producto/EditarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWRpdGFyUHJvZHVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Producto/EliminarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWxpbWluYXJQcm9kdWN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Producto/ProductoIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cUHJvZHVjdG9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Usuario/AgregarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xBZ3JlZ2FyVXN1YXJpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Usuario/EditarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXJVc3VhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Usuario/EliminarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFbGltaW5hclVzdWFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Usuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Usuario/UsuariosPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xVc3Vhcmlvc1BhcnRpYWxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pablo.perez/dev/_DotNet/ASP_NET_CORE_CPP_ENTRY/Pruebas.Cliente/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-v7bbgw1ti2
