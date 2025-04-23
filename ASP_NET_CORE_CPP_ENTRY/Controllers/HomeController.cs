@@ -11,9 +11,9 @@ namespace Pruebas.Cliente.Controllers
         #region "DLL WRAPPER FUNCTIONS "
 
         #region "TESSERACT"
-        const string dll_Tesseract = "tesseract.dll";
-        const string fn_GetTesseractOcrOutput = "GetTesseractOcrOutput";
-        const string fn_GetTesseractVersion = "GetTesseractVersion";
+        const string dll_Tesseract              = "tesseract.dll";
+        const string fn_GetTesseractOcrOutput   = "GetTesseractOcrOutput";
+        const string fn_GetTesseractVersion     = "GetTesseractVersion";
 
         //////////////////////////////////////////////////////////////
         /// COMMON FUNCTION
@@ -232,6 +232,7 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
+        
         // GET DLL VERSION
         [DllImport(@"Algorithm.dll", EntryPoint = @"GetDLLVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr _GetDLLVersion();
