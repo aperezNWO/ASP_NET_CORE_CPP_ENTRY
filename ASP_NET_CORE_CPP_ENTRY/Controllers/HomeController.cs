@@ -1,6 +1,4 @@
-﻿using mcsd.Web.Controllers;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pruebas.Cliente.Models;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -8,19 +6,19 @@ using System.Web;
 
 namespace Pruebas.Cliente.Controllers
 {
-    public class HomeController : BaseApiController
+    public class HomeController : Controller
     {
         #region "DLL WRAPPER FUNCTIONS "
 
         #region "TESSERACT"
-        const string dll_Tesseract                    = "tesseract.dll";
-        const string fn_GetTesseractOcrOutput         = "GetTesseractOcrOutput";
-        const string fn_GetTesseractVersion           = "GetTesseractVersion";
-     
+        const string dll_Tesseract = "tesseract.dll";
+        const string fn_GetTesseractOcrOutput = "GetTesseractOcrOutput";
+        const string fn_GetTesseractVersion = "GetTesseractVersion";
+
         //////////////////////////////////////////////////////////////
         /// COMMON FUNCTION
         //////////////////////////////////////////////////////////////
-   
+
         //////////////////////////////////////////////////////////////
         /// _GetTesseractOcrOutput
         //////////////////////////////////////////////////////////////
@@ -36,10 +34,10 @@ namespace Pruebas.Cliente.Controllers
             try
             {
 
-                IntPtr intptr        = _GetTesseractOcrOutput();
+                IntPtr intptr = _GetTesseractOcrOutput();
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
 
-                return_value_str     = unicodeString;
+                return_value_str = unicodeString;
             }
             catch (Exception ex)
             {
@@ -50,7 +48,7 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
-        
+
         //////////////////////////////////////////////////////////////
         /// GetTesseractVersion
         //////////////////////////////////////////////////////////////
@@ -61,18 +59,18 @@ namespace Pruebas.Cliente.Controllers
         public string GetTesseractVersion()
         {
             string return_value_str = string.Empty;
-            IntPtr intptr           = IntPtr.Zero;
+            IntPtr intptr = IntPtr.Zero;
 
             try
             {
                 // Call the external DLL function to get the result
-                intptr               = _GetTesseractVersion();
+                intptr = _GetTesseractVersion();
 
                 // Convert the IntPtr to a string
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
 
                 // Assign the result to the return value
-                return_value_str     = unicodeString;
+                return_value_str = unicodeString;
 
 
             }
@@ -230,7 +228,7 @@ namespace Pruebas.Cliente.Controllers
             {
                 string msg = ex.Message + " " + ex.StackTrace;
 
-               // LogModel.Log(msg);
+                // LogModel.Log(msg);
             }
             return return_value_str;
         }
@@ -240,19 +238,14 @@ namespace Pruebas.Cliente.Controllers
 
         #endregion
 
+
         #region "ROOT FUNCTIONS "
 
-        public HomeController(IConfiguration configuration
-                                       , IWebHostEnvironment env
-                                       , IHttpContextAccessor p_httpContextAccessor
-                                       , IMemoryCache memoryCache)
-                   : base(configuration
-                           , env
-                           , p_httpContextAccessor
-                           , memoryCache
-                   )
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
         {
-            //
+            _logger = logger;
         }
 
         public IActionResult Index()
@@ -271,7 +264,12 @@ namespace Pruebas.Cliente.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        //
+        [NonAction]
+        public string ApplicationVersion()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
+
         [Microsoft.AspNetCore.Mvc.HttpGet("_GetAppVersion")]
         public string _GetAppVersion()
         {
@@ -282,7 +280,7 @@ namespace Pruebas.Cliente.Controllers
 
             try
             {
-                appVersion = base.ApplicationVersion();
+                appVersion = ApplicationVersion();
                 //--------------------------------------------------
                 // LOG
                 //--------------------------------------------------
