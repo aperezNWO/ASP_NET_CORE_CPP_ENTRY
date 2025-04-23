@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using mcsd.Web.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Pruebas.Cliente.Models;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -6,7 +8,7 @@ using System.Web;
 
 namespace Pruebas.Cliente.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseApiController
     {
         #region "DLL WRAPPER FUNCTIONS "
 
@@ -238,14 +240,19 @@ namespace Pruebas.Cliente.Controllers
 
         #endregion
 
-
         #region "ROOT FUNCTIONS "
 
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IConfiguration configuration
+                                       , IWebHostEnvironment env
+                                       , IHttpContextAccessor p_httpContextAccessor
+                                       , IMemoryCache memoryCache)
+                   : base(configuration
+                           , env
+                           , p_httpContextAccessor
+                           , memoryCache
+                   )
         {
-            _logger = logger;
+            //
         }
 
         public IActionResult Index()
@@ -264,6 +271,36 @@ namespace Pruebas.Cliente.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        //
+        [Microsoft.AspNetCore.Mvc.HttpGet("_GetAppVersion")]
+        public string _GetAppVersion()
+        {
+            //--------------------------------------------------
+            // DECLARACION DE VARIABLES
+            //--------------------------------------------------
+            string appVersion = "";
+
+            try
+            {
+                appVersion = base.ApplicationVersion();
+                //--------------------------------------------------
+                // LOG
+                //--------------------------------------------------
+                //LogModel.Log(string.Format("app_version : {0}", appVersion));
+            }
+            catch (Exception ex)
+            {
+                /*
+                LogModel.Log(string.Format("app_version. ERROR ='{0}'-'{1}'"
+                                                      , ex.Message
+                                                      , ex.StackTrace)
+                             , string.Empty
+                             , LogModel.LogType.Error
+                             );*/
+            }
+            //
+            return appVersion;
+        }
         #endregion 
     }
 }

@@ -506,6 +506,7 @@ C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENT
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.RazorAssemblyInfo.cache
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.RazorAssemblyInfo.cs
+C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.sourcelink.json
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\staticwebassets\msbuild.ASP_NET_CORE_CPP_ENTRY.Microsoft.AspNetCore.StaticWebAssets.props
