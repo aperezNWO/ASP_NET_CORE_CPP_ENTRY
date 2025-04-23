@@ -232,6 +232,29 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
+        // GET DLL VERSION
+        [DllImport(@"Algorithm.dll", EntryPoint = @"GetDLLVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr _GetDLLVersion();
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetDLLVersion")]
+        public string GetDLLVersion()
+        {
+            //
+            string return_value_str = string.Empty;
+            //
+            try
+            {
+                IntPtr intptr        = _GetDLLVersion();
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+                return_value_str     = unicodeString;
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message + " " + ex.StackTrace;
+
+                // LogModel.Log(msg);
+            }
+            return return_value_str;
+        }
         #endregion
 
         #endregion
