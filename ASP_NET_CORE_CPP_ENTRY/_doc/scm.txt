@@ -15,3 +15,13 @@ git pull
 
 (debe decir "Everything up to date)
 
+git add *
+
+git commit -m"Application ASP_NMET_CORE_CPP_ENTRY v[1.0.3]
+>> 1) Add function 'GetTesseractAppVersion'
+
+git push
+
+git pull
+
+

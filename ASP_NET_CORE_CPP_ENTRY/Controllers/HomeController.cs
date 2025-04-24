@@ -14,6 +14,7 @@ namespace Pruebas.Cliente.Controllers
         const string dll_Tesseract              = "tesseract.dll";
         const string fn_GetTesseractOcrOutput   = "GetTesseractOcrOutput";
         const string fn_GetTesseractVersion     = "GetTesseractVersion";
+        const string fn_GetTesseractAppVersion  = "GetTesseractAppVersion";
 
         //////////////////////////////////////////////////////////////
         /// COMMON FUNCTION
@@ -83,6 +84,39 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
+        //////////////////////////////////////////////////////////////
+        /// GetTesseractAppVersion
+        //////////////////////////////////////////////////////////////
+        [DllImport(@"" + dll_Tesseract + "", EntryPoint = @"" + fn_GetTesseractAppVersion + "", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr _GetTesseractAppVersion();
+
+        [Microsoft.AspNetCore.Mvc.HttpGet(fn_GetTesseractAppVersion)]
+        public string GetTesseractAppVersion()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr           = IntPtr.Zero;
+
+            try
+            {
+                // Call the external DLL function to get the result
+                intptr = _GetTesseractAppVersion();
+
+                // Convert the IntPtr to a string
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str = unicodeString;
+
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
         #endregion
 
         #region "TENSORFLOW"
@@ -256,6 +290,8 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
+
+   
         #endregion
 
         #endregion
