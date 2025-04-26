@@ -17,8 +17,7 @@ git pull
 
 git add *
 
-git commit -m"Application ASP_NMET_CORE_CPP_ENTRY v[1.0.4]
->> 1) Add function 'UploadImage'."
+git commit -m"Application ASP_NMET_CORE_CPP_ENTRY v[1.0.5]" -m"1) Add Tesseract DLL Entry Point 'GetTesseractOcrOutputPath'"
 
 git push
 

@@ -19,10 +19,11 @@ namespace Pruebas.Cliente.Controllers
         #region "DLL WRAPPER FUNCTIONS "
 
         #region "TESSERACT"
-        const string dll_Tesseract              = "tesseract.dll";
-        const string fn_GetTesseractOcrOutput   = "GetTesseractOcrOutput";
-        const string fn_GetTesseractVersion     = "GetTesseractVersion";
-        const string fn_GetTesseractAppVersion  = "GetTesseractAppVersion";
+        const string dll_Tesseract                = "tesseract.dll";
+        const string fn_GetTesseractOcrOutput     = "GetTesseractOcrOutput";
+        const string fn_GetTesseractOcrOutputPath = "GetTesseractOcrOutputPath";
+        const string fn_GetTesseractVersion       = "GetTesseractVersion";
+        const string fn_GetTesseractAppVersion    = "GetTesseractAppVersion";
 
         //////////////////////////////////////////////////////////////
         /// COMMON FUNCTION
@@ -97,72 +98,6 @@ namespace Pruebas.Cliente.Controllers
         }
 
   
-        /// <summary>
-        /// Handles the POST request for uploading base64-encoded images.
-        /// </summary>
-        /// <param name="request">The JSON payload containing the base64 image.</param>
-        /// <returns>An HTTP response indicating success or failure.</returns>
-        [Microsoft.AspNetCore.Mvc.HttpPost("Upload")]
-        public async Task<IActionResult> Upload([FromBody] UploadRequest request)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(request.Base64Image))
-                {
-                    return BadRequest("Invalid request: base64Image is required.");
-                }
-
-                // Extract file extension and base64 data using regex
-                var regex = new Regex(@"^data:image\/([A-Za-z-+/]+);base64,(.+)$");
-                var match = regex.Match(request.Base64Image);
-
-                if (!match.Success)
-                {
-                    return BadRequest("Invalid base64 image format.");
-                }
-
-                var fileExtension = match.Groups[1].Value;
-                var base64Data    = match.Groups[2].Value;
-
-                // Convert base64 string to byte array
-                var imageBytes    = Convert.FromBase64String(base64Data);
-
-                // Generate a unique filename based on timestamp
-                var fileName      = $"image_{DateTime.Now:yyyyMMddHHmmss}.{fileExtension}";
-
-                // Define the file path where the image will be saved
-                var filePath      = Path.Combine("img", "signatures", "dest", fileName);
-
-                // Ensure the directory exists
-                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-
-                // Write the byte array to a file
-                await System.IO.File.WriteAllBytesAsync(filePath, imageBytes);
-
-                Console.WriteLine($"Image saved successfully: {filePath}");
-
-                // Call the OCR function
-                DoOcr(filePath);
-
-                return Ok(new { Message = "Image uploaded and processed successfully.", FilePath = filePath });
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine($"Error processing image: {ex.Message}");
-                return StatusCode(500, "Internal server error.");
-            }
-        }
-
-        /// <summary>
-        /// Simulates OCR processing for the uploaded image.
-        /// </summary>
-        /// <param name="imagePath">The path to the uploaded image.</param>
-        private void DoOcr(string imagePath)
-        {
-            // Implement your OCR logic here
-            Console.WriteLine($"Processing OCR for image: {imagePath}");
-        }
-
         //////////////////////////////////////////////////////////////
         /// _GetTesseractOcrOutput
         //////////////////////////////////////////////////////////////
@@ -190,6 +125,76 @@ namespace Pruebas.Cliente.Controllers
                 return_value_str = msg;
             }
             return return_value_str;
+        }
+
+        /// <summary>
+        /// Handles the POST request for uploading base64-encoded images.
+        /// </summary>
+        /// <param name="request">The JSON payload containing the base64 image.</param>
+        /// <returns>An HTTP response indicating success or failure.</returns>
+        [DllImport(@"" + dll_Tesseract + "", EntryPoint = @"" + fn_GetTesseractOcrOutputPath + "", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr _GetTesseractOcrOutputPath(string imagePath);
+
+        [Microsoft.AspNetCore.Mvc.HttpPost("Upload")]
+        public async Task<IActionResult> Upload([FromBody] UploadRequest request)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(request.Base64Image))
+                {
+                    return BadRequest("Invalid request: base64Image is required.");
+                }
+
+                // Extract file extension and base64 data using regex
+                var regex = new Regex(@"^data:image\/([A-Za-z-+/]+);base64,(.+)$");
+                var match = regex.Match(request.Base64Image);
+
+                if (!match.Success)
+                {
+                    return BadRequest("Invalid base64 image format.");
+                }
+
+                var fileExtension = match.Groups[1].Value;
+                var base64Data = match.Groups[2].Value;
+
+                // Convert base64 string to byte array
+                var imageBytes = Convert.FromBase64String(base64Data);
+
+                // Generate a unique filename based on timestamp
+                var fileName = $"image_{DateTime.Now:yyyyMMddHHmmss}.{fileExtension}";
+
+                // Define the file path where the image will be saved
+                var filePath = Path.Combine("img", "signatures", "dest", fileName);
+
+                // Ensure the directory exists
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+                // Write the byte array to a file
+                await System.IO.File.WriteAllBytesAsync(filePath, imageBytes);
+
+                Console.WriteLine($"Image saved successfully: {filePath}");
+
+                // Call the OCR function
+                IntPtr intptr           = _GetTesseractOcrOutputPath(filePath);
+                string unicodeString    = string.Format("Texto en imagen : {0}",Marshal.PtrToStringUTF8(intptr));
+
+                return Ok(new { Message = unicodeString, FilePath = filePath });
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Error processing image: {ex.Message}");
+                return StatusCode(500, "Internal server error.");
+            }
+        }
+
+        /// <summary>
+        /// Simulates OCR processing for the uploaded image.
+        /// </summary>
+        /// <param name="imagePath">The path to the uploaded image.</param>
+        private void DoOcr(string imagePath)
+        {
+            // Implement your OCR logic here
+            Console.WriteLine($"Processing OCR for image: {imagePath}");
         }
         #endregion
 
