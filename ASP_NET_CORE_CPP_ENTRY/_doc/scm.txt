@@ -17,9 +17,8 @@ git pull
 
 git add *
 
-git commit -m"Application ASP_NMET_CORE_CPP_ENTRY v[1.0.3]
->> 1) Add function 'GetTesseractAppVersion'.
->> 2) Strategy update".
+git commit -m"Application ASP_NMET_CORE_CPP_ENTRY v[1.0.4]
+>> 1) Add function 'UploadImage'."
 
 git push
 

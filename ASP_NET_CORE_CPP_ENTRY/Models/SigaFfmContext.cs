@@ -25,8 +25,6 @@ public partial class SigaFfmContext : DbContext
 
     public virtual DbSet<TblProducto> TblProductos { get; set; }
 
-    public virtual DbSet<TblUsuario> TblUsuarios { get; set; }
-
     public virtual DbSet<Tercero> Terceros { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -148,32 +146,6 @@ public partial class SigaFfmContext : DbContext
             entity.Property(e => e.Precio)
                 .HasColumnType("decimal(18, 2)")
                 .HasColumnName("precio");
-        });
-
-        modelBuilder.Entity<TblUsuario>(entity =>
-        {
-            entity.HasKey(e => e.IdUsuario);
-
-            entity.ToTable("tbl_usuario");
-
-            entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
-            entity.Property(e => e.Activo).HasColumnName("activo");
-            entity.Property(e => e.ApellidoMaterno)
-                .HasMaxLength(50)
-                .HasColumnName("apellido_materno");
-            entity.Property(e => e.ApellidoPaterno)
-                .HasMaxLength(50)
-                .HasColumnName("apellido_paterno");
-            entity.Property(e => e.Cargo)
-                .HasMaxLength(50)
-                .HasColumnName("cargo");
-            entity.Property(e => e.FechaCreacion)
-                .HasColumnType("datetime")
-                .HasColumnName("fecha_creacion");
-            entity.Property(e => e.Identificacion).HasColumnName("identificacion");
-            entity.Property(e => e.Nombre)
-                .HasMaxLength(50)
-                .HasColumnName("nombre");
         });
 
         modelBuilder.Entity<Tercero>(entity =>
