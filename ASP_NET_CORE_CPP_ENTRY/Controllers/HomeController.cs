@@ -127,11 +127,6 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
-        /// <summary>
-        /// Handles the POST request for uploading base64-encoded images.
-        /// </summary>
-        /// <param name="request">The JSON payload containing the base64 image.</param>
-        /// <returns>An HTTP response indicating success or failure.</returns>
         [DllImport(@"" + dll_Tesseract + "", EntryPoint = @"" + fn_GetTesseractOcrOutputPath + "", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr _GetTesseractOcrOutputPath(string imagePath);
 
@@ -257,7 +252,6 @@ namespace Pruebas.Cliente.Controllers
                 // Assign the result to the return value
                 return_value_str = unicodeString;
 
-
             }
             catch (Exception ex)
             {
@@ -267,6 +261,58 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
+        [Microsoft.AspNetCore.Mvc.HttpPost("Upload")]
+        public async Task<IActionResult> UploadOpenCv([FromBody] UploadRequest request)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(request.Base64Image))
+                {
+                    return BadRequest("Invalid request: base64Image is required.");
+                }
+
+                // Extract file extension and base64 data using regex
+                var regex = new Regex(@"^data:image\/([A-Za-z-+/]+);base64,(.+)$");
+                var match = regex.Match(request.Base64Image);
+
+                if (!match.Success)
+                {
+                    return BadRequest("Invalid base64 image format.");
+                }
+
+                var fileExtension = match.Groups[1].Value;
+                var base64Data    = match.Groups[2].Value;
+
+                // Convert base64 string to byte array
+                var imageBytes   = Convert.FromBase64String(base64Data);
+
+                // Generate  a unique filename based on timestamp
+                var fileName = $"image_{DateTime.Now:yyyyMMddHHmmss}.{fileExtension}";
+
+                // Define the file path where the image will be saved
+                var filePath = Path.Combine("img", "signatures", "dest", fileName);
+
+                // Ensure the directory exists
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+                // Write the byte array to a file
+                await System.IO.File.WriteAllBytesAsync(filePath, imageBytes);
+
+                Console.WriteLine($"Image saved successfully: {filePath}");
+
+                // Call the OCR function
+                IntPtr intptr        = OpenCvReadImagePath(filePath);
+                string unicodeString = string.Format("Figura Detectada : {0}", Marshal.PtrToStringUTF8(intptr));
+
+                return Ok(new { Message = unicodeString, FilePath = filePath });
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Error processing image: {ex.Message}");
+                return StatusCode(500, "Internal server error.");
+            }
+        }
+
         #endregion
 
         #region "ALGORITHM"
@@ -443,7 +489,6 @@ namespace Pruebas.Cliente.Controllers
         #endregion
 
         #endregion
-
 
         #region "ROOT FUNCTIONS "
 
