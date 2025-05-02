@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|c:\\users\\pablo.perez\\dev\\_dotnet\\asp_net_core_cpp_entry\\src\\asp_net_core_cpp_entry\\asp_net_core_cpp_entry.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|solutionrelative:asp_net_core_cpp_entry\\asp_net_core_cpp_entry.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|c:\\users\\pablo.perez\\dev\\_dotnet\\asp_net_core_cpp_entry\\src\\asp_net_core_cpp_entry\\asp_net_core_cpp_entry.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|solutionrelative:asp_net_core_cpp_entry\\asp_net_core_cpp_entry.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 32,
           "Children": [
             {
               "$type": "Bookmark",
@@ -138,6 +147,30 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ASP_NET_CORE_CPP_ENTRY",
+              "DocumentMoniker": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "RelativeDocumentMoniker": "ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "ToolTip": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "RelativeToolTip": "ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-01T02:37:58.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ASP_NET_CORE_CPP_ENTRY.csproj",
+              "DocumentMoniker": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "RelativeDocumentMoniker": "ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "ToolTip": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "RelativeToolTip": "ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-01T01:22:54.743Z"
             }
           ]
         },

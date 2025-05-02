@@ -41,8 +41,8 @@
       "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
-      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\image.png",
+      "PackagePath": "staticwebassets\\image.png"
     },
     {
       "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\js\\Datepicker.rar",
@@ -299,6 +299,142 @@
     {
       "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\alto",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\ambigs.train",
+      "PackagePath": "staticwebassets\\tessdata\\configs\\ambigs.train"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\api_config",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\bazaar",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\bigram",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\box.train",
+      "PackagePath": "staticwebassets\\tessdata\\configs\\box.train"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\box.train.stderr",
+      "PackagePath": "staticwebassets\\tessdata\\configs\\box.train.stderr"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\digits",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\get.images",
+      "PackagePath": "staticwebassets\\tessdata\\configs\\get.images"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\hocr",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\inter",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\kannada",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\linebox",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\logfile",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\lstm.train",
+      "PackagePath": "staticwebassets\\tessdata\\configs\\lstm.train"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\lstmbox",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\lstmdebug",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\makebox",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\page",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\pdf",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\quiet",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\rebox",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\strokewidth",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\tsv",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\txt",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\unlv",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\wordstrbox",
+      "PackagePath": "staticwebassets\\tessdata\\configs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\eng.traineddata",
+      "PackagePath": "staticwebassets\\tessdata\\eng.traineddata"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\tessconfigs\\batch",
+      "PackagePath": "staticwebassets\\tessdata\\tessconfigs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\tessconfigs\\batch.nochop",
+      "PackagePath": "staticwebassets\\tessdata\\tessconfigs\\batch.nochop"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\tessconfigs\\matdemo",
+      "PackagePath": "staticwebassets\\tessdata\\tessconfigs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\tessconfigs\\msdemo",
+      "PackagePath": "staticwebassets\\tessdata\\tessconfigs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\tessconfigs\\nobatch",
+      "PackagePath": "staticwebassets\\tessdata\\tessconfigs"
+    },
+    {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\tessconfigs\\segdemo",
+      "PackagePath": "staticwebassets\\tessdata\\tessconfigs"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ASP_NET_CORE_CPP_ENTRY.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -19,11 +19,11 @@ namespace Pruebas.Cliente.Controllers
         #region "DLL WRAPPER FUNCTIONS "
 
         #region "TESSERACT"
-        const string dll_Tesseract                = "tesseract.dll";
-        const string fn_GetTesseractOcrOutput     = "GetTesseractOcrOutput";
+        const string dll_Tesseract = "tesseract.dll";
+        const string fn_GetTesseractOcrOutput = "GetTesseractOcrOutput";
         const string fn_GetTesseractOcrOutputPath = "GetTesseractOcrOutputPath";
-        const string fn_GetTesseractVersion       = "GetTesseractVersion";
-        const string fn_GetTesseractAppVersion    = "GetTesseractAppVersion";
+        const string fn_GetTesseractVersion = "GetTesseractVersion";
+        const string fn_GetTesseractAppVersion = "GetTesseractAppVersion";
 
         //////////////////////////////////////////////////////////////
         /// COMMON FUNCTION
@@ -73,7 +73,7 @@ namespace Pruebas.Cliente.Controllers
         public string GetTesseractAppVersion()
         {
             string return_value_str = string.Empty;
-            IntPtr intptr           = IntPtr.Zero;
+            IntPtr intptr = IntPtr.Zero;
 
             try
             {
@@ -97,7 +97,7 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
-  
+
         //////////////////////////////////////////////////////////////
         /// _GetTesseractOcrOutput
         //////////////////////////////////////////////////////////////
@@ -113,10 +113,10 @@ namespace Pruebas.Cliente.Controllers
             try
             {
 
-                IntPtr intptr        = _GetTesseractOcrOutput();
+                IntPtr intptr = _GetTesseractOcrOutput();
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
 
-                return_value_str     = unicodeString;
+                return_value_str = unicodeString;
             }
             catch (Exception ex)
             {
@@ -175,8 +175,8 @@ namespace Pruebas.Cliente.Controllers
                 Console.WriteLine($"Image saved successfully: {filePath}");
 
                 // Call the OCR function
-                IntPtr intptr           = _GetTesseractOcrOutputPath(filePath);
-                string unicodeString    = string.Format("Texto en imagen : {0}",Marshal.PtrToStringUTF8(intptr));
+                IntPtr intptr = _GetTesseractOcrOutputPath(filePath);
+                string unicodeString = string.Format("Texto en imagen : {0}", Marshal.PtrToStringUTF8(intptr));
 
                 return Ok(new { Message = unicodeString, FilePath = filePath });
             }
@@ -198,8 +198,75 @@ namespace Pruebas.Cliente.Controllers
         }
         #endregion
 
-        #region "TENSORFLOW"
+        #region "opencv"
+        const string dll_OpenCv    = "OpenCvDll.dll";
+        const string endPoint     = "OpenCvReadImage";
+        const string endPointPath = "OpenCvReadImagePath";
 
+
+        [DllImport("OpenCvDll.dll", CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr OpenCvReadImage();
+
+        [Microsoft.AspNetCore.Mvc.HttpGet(endPoint)]
+        public string _OpenCvReadImage()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr = IntPtr.Zero;
+
+            try
+            {
+                // Call the external DLL function to get the result
+                intptr = OpenCvReadImage();
+
+                // Convert the IntPtr to a string
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str = unicodeString;
+
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
+        //
+        [DllImport("OpenCvDll.dll", CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr OpenCvReadImagePath(string path);
+
+        [Microsoft.AspNetCore.Mvc.HttpGet(endPointPath)]
+        public string _OpenCvReadImagePath()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr = IntPtr.Zero;
+
+            try
+            {
+                //
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image.png");
+                // Call the external DLL function to get the result
+                intptr = OpenCvReadImagePath(imagePath);
+
+                // Convert the IntPtr to a string
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str = unicodeString;
+
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
         #endregion
 
         #region "ALGORITHM"
@@ -345,7 +412,7 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
-        
+
         // GET DLL VERSION
         [DllImport(@"Algorithm.dll", EntryPoint = @"GetDLLVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr _GetDLLVersion();
@@ -357,9 +424,9 @@ namespace Pruebas.Cliente.Controllers
             //
             try
             {
-                IntPtr intptr        = _GetDLLVersion();
+                IntPtr intptr = _GetDLLVersion();
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
-                return_value_str     = unicodeString;
+                return_value_str = unicodeString;
             }
             catch (Exception ex)
             {
@@ -370,7 +437,7 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
-   
+
         #endregion
 
         #endregion
