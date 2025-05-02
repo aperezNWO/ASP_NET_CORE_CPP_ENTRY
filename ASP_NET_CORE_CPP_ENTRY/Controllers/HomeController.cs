@@ -194,15 +194,19 @@ namespace Pruebas.Cliente.Controllers
         #endregion
 
         #region "opencv"
-        const string dll_OpenCv    = "OpenCvDll.dll";
-        const string endPoint     = "OpenCvReadImage";
-        const string endPointPath = "OpenCvReadImagePath";
+        const string dll_OpenCv          = "OpenCvDll.dll";
+        const string endPoint_OpenCv     = "OpenCvReadImage";
+
+
+        ////////////////////////////////////////////////////////////
+        // OPENCV READ IMAGE (TEST)
+        ////////////////////////////////////////////////////////////
 
 
         [DllImport("OpenCvDll.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr OpenCvReadImage();
 
-        [Microsoft.AspNetCore.Mvc.HttpGet(endPoint)]
+        [Microsoft.AspNetCore.Mvc.HttpGet(endPoint_OpenCv)]
         public string _OpenCvReadImage()
         {
             string return_value_str = string.Empty;
@@ -229,11 +233,15 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
-        //
+
+
+        ////////////////////////////////////////////////////////////
+        // OPENCV READ IMAGE (PATH)
+        ////////////////////////////////////////////////////////////
+        ///
         [DllImport("OpenCvDll.dll", CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr OpenCvReadImagePath(string path);
 
-        [Microsoft.AspNetCore.Mvc.HttpGet(endPointPath)]
         public string _OpenCvReadImagePath()
         {
             string return_value_str = string.Empty;
@@ -261,7 +269,7 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
-        [Microsoft.AspNetCore.Mvc.HttpPost("Upload")]
+        [Microsoft.AspNetCore.Mvc.HttpPost("UploadOpenCv")]
         public async Task<IActionResult> UploadOpenCv([FromBody] UploadRequest request)
         {
             try

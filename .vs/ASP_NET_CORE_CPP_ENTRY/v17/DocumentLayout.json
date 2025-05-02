@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|c:\\users\\pablo.perez\\dev\\_dotnet\\asp_net_core_cpp_entry\\src\\asp_net_core_cpp_entry\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|solutionrelative:asp_net_core_cpp_entry\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|c:\\users\\pablo.perez\\dev\\_dotnet\\asp_net_core_cpp_entry\\src\\asp_net_core_cpp_entry\\_doc\\scm.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|solutionrelative:asp_net_core_cpp_entry\\_doc\\scm.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|c:\\users\\pablo.perez\\dev\\_dotnet\\asp_net_core_cpp_entry\\src\\asp_net_core_cpp_entry\\asp_net_core_cpp_entry.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|solutionrelative:asp_net_core_cpp_entry\\asp_net_core_cpp_entry.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|c:\\users\\pablo.perez\\dev\\_dotnet\\asp_net_core_cpp_entry\\src\\asp_net_core_cpp_entry\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|solutionrelative:asp_net_core_cpp_entry\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|c:\\users\\pablo.perez\\dev\\_dotnet\\asp_net_core_cpp_entry\\src\\asp_net_core_cpp_entry\\asp_net_core_cpp_entry.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 32,
+          "SelectedChildIndex": 31,
           "Children": [
             {
               "$type": "Bookmark",
@@ -149,18 +153,31 @@
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "scm.txt",
+              "DocumentMoniker": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
+              "RelativeDocumentMoniker": "ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
+              "ToolTip": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
+              "RelativeToolTip": "ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAsAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-05-02T05:28:45.946Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ASP_NET_CORE_CPP_ENTRY\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\Controllers\\HomeController.cs",
               "RelativeToolTip": "ASP_NET_CORE_CPP_ENTRY\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAABwBAAAAAAAAAAAtwCUBAAAAAAAA",
+              "ViewState": "AQIAAOoAAAAAAAAAAAAtwPIAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-02T03:25:09.81Z",
               "EditorCaption": ""
@@ -179,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ASP_NET_CORE_CPP_ENTRY.csproj",
               "DocumentMoniker": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
               "RelativeDocumentMoniker": "ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
