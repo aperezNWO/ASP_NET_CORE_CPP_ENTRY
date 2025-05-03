@@ -15,7 +15,6 @@ builder.Services.AddDbContext<SigaFfmContext>(options => options.UseSqlServer(bu
     GetConnectionString("defaultConnection")));
 
 
-builder.Services.AddScoped<IProducto, Repositorio_Producto>();
 builder.Services.AddScoped<IPersonal, Repositorio_Personal>();
 builder.Services.AddCors(options =>
 {

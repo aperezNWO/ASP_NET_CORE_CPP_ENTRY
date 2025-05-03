@@ -203,7 +203,7 @@ namespace Pruebas.Cliente.Controllers
         ////////////////////////////////////////////////////////////
 
 
-        [DllImport("OpenCvDll.dll", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(dll_OpenCv , CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr OpenCvReadImage();
 
         [Microsoft.AspNetCore.Mvc.HttpGet(endPoint_OpenCv)]
@@ -239,9 +239,8 @@ namespace Pruebas.Cliente.Controllers
         // OPENCV READ IMAGE (PATH)
         ////////////////////////////////////////////////////////////
         ///
-        [DllImport("OpenCvDll.dll", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr OpenCvReadImagePath(string path);
-
         public string _OpenCvReadImagePath()
         {
             string return_value_str = string.Empty;
@@ -269,6 +268,10 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
+
+        ////////////////////////////////////////////////////////////
+        // OPENCV UPLOAD FILE
+        ////////////////////////////////////////////////////////////
         [Microsoft.AspNetCore.Mvc.HttpPost("UploadOpenCv")]
         public async Task<IActionResult> UploadOpenCv([FromBody] UploadRequest request)
         {
@@ -321,6 +324,39 @@ namespace Pruebas.Cliente.Controllers
             }
         }
 
+        ////////////////////////////////////////////////////////////
+        // OPENCV GET APP VERSION
+        ////////////////////////////////////////////////////////////
+        ///
+        [DllImport(dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr GetOpenCvAppVersion();
+
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetOpenCvAppVersion")]
+        public string _GetOpenCvAppVersion()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr           = IntPtr.Zero;
+
+            try
+            {
+                // Call the external DLL function to get the result
+                intptr               = GetOpenCvAppVersion();
+
+                // Convert the IntPtr to a string
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str     = unicodeString;
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
         #endregion
 
         #region "ALGORITHM"

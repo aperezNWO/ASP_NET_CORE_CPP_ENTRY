@@ -17,7 +17,7 @@ git pull
 
 git add *
 
-git commit -m"Application ASP_NMET_CORE_CPP_ENTRY v[1.0.6]" -m"1) Add OpenCv DLL Entry Points "
+git commit -m"Application ASP_NMET_CORE_CPP_ENTRY v[1.0.6]" -m"1) Add OpenCv DLL Entry Points " -a
 
 git push
 
