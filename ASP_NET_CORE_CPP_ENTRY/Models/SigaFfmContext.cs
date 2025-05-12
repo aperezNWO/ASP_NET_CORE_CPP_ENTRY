@@ -21,7 +21,6 @@ public partial class SigaFfmContext : DbContext
 
     public virtual DbSet<Grado> Grados { get; set; }
 
-    public virtual DbSet<Personal> Personals { get; set; }
 
     public virtual DbSet<Tercero> Terceros { get; set; }
 
@@ -68,57 +67,6 @@ public partial class SigaFfmContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("Grado");
             entity.Property(e => e.IdCategoria).HasColumnName("idCategoria");
-        });
-
-        modelBuilder.Entity<Personal>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Personal__3214EC07BBB5CE9E");
-
-            entity.ToTable("Personal");
-
-            entity.HasIndex(e => e.Cedula, "UQ__Personal__B4ADFE384BC901CA").IsUnique();
-
-            entity.Property(e => e.Cedula)
-                .HasMaxLength(20)
-                .IsUnicode(false);
-            entity.Property(e => e.Creado).HasDefaultValueSql("(getdate())");
-            entity.Property(e => e.Estado).HasDefaultValue(true);
-            entity.Property(e => e.FNacimiento).HasColumnName("F_Nacimiento");
-            entity.Property(e => e.Foto).HasMaxLength(2500);
-            entity.Property(e => e.Huella1).HasMaxLength(2500);
-            entity.Property(e => e.Huella2).HasMaxLength(2500);
-            entity.Property(e => e.IdArma).HasColumnName("Id_Arma");
-            entity.Property(e => e.IdCategoria).HasColumnName("Id_Categoria");
-            entity.Property(e => e.IdCuerpo).HasColumnName("Id_Cuerpo");
-            entity.Property(e => e.IdGenero)
-                .HasMaxLength(2)
-                .IsUnicode(false)
-                .HasColumnName("Id_Genero");
-            entity.Property(e => e.IdGrado).HasColumnName("Id_Grado");
-            entity.Property(e => e.IdRh)
-                .HasMaxLength(3)
-                .IsUnicode(false)
-                .HasColumnName("Id_RH");
-            entity.Property(e => e.PApellido)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("P_Apellido");
-            entity.Property(e => e.PNombre)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("P_Nombre");
-            entity.Property(e => e.Registro)
-                .HasMaxLength(27)
-                .IsUnicode(false)
-                .HasComputedColumnSql("(concat(CONVERT([varchar](4),datepart(year,[Creado])),right('00'+CONVERT([varchar](2),datepart(month,[Creado])),(2)),right('00'+CONVERT([varchar](2),datepart(day,[Creado])),(2)),'-0000-0000-',right('000000'+CONVERT([varchar],[Id]),(6)),right('00'+CONVERT([varchar],datepart(day,[Creado])),(2))))", false);
-            entity.Property(e => e.SApellido)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("S_Apellido");
-            entity.Property(e => e.SNombre)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("S_Nombre");
         });
 
         modelBuilder.Entity<Tercero>(entity =>

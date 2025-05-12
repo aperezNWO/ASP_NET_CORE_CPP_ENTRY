@@ -1,8 +1,6 @@
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.EntityFrameworkCore;
-using Pruebas.Cliente.Interface;
 using Pruebas.Cliente.Models;
-using Pruebas.Cliente.Repositorio;
 
 string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -15,7 +13,6 @@ builder.Services.AddDbContext<SigaFfmContext>(options => options.UseSqlServer(bu
     GetConnectionString("defaultConnection")));
 
 
-builder.Services.AddScoped<IPersonal, Repositorio_Personal>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,

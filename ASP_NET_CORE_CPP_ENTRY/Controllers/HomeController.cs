@@ -17,6 +17,7 @@ namespace Pruebas.Cliente.Controllers
     public class HomeController : Controller
     {
         #region "DLL WRAPPER FUNCTIONS "
+        // CallingConvention.Cdecl = x86 DLL
 
         #region "TESSERACT"
         const string dll_Tesseract = "tesseract.dll";
@@ -360,7 +361,7 @@ namespace Pruebas.Cliente.Controllers
         #endregion
 
         #region "ALGORITHM"
-        // CallingConvention.Cdecl = x86 DLL
+
         #region "DLL Import"
 
         // DIJKSTRA
@@ -530,6 +531,34 @@ namespace Pruebas.Cliente.Controllers
 
         #endregion
 
+        #endregion
+
+        #region "TENSORFLOW"
+        // DIJKSTRA
+        [DllImport(@"TensorFlowAppC.dll", EntryPoint = @"GetTensorFlowVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr _GetTensorflowVersion();
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorflowVersion")]
+        public string GetTensorflowVersion()
+        {
+            //
+            string return_value_str = string.Empty;
+            //
+            try
+            {
+
+                IntPtr intptr        = _GetTensorflowVersion();
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                return_value_str     = unicodeString;
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message + " " + ex.StackTrace;
+
+                //LogModel.Log(msg);
+            }
+            return return_value_str;
+        }
         #endregion
 
         #endregion
