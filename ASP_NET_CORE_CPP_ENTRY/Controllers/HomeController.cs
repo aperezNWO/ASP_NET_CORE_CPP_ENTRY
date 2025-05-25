@@ -570,8 +570,8 @@ namespace Pruebas.Cliente.Controllers
         #endregion
 
         #region "TENSORFLOW"
-        // DIJKSTRA
-        [DllImport(@"TensorFlowAppC.dll", EntryPoint = @"GetTensorFlowAPIVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        // API VERSION
+        [DllImport(@"TensorFlowAppCPP.dll", EntryPoint = @"GetTensorFlowAPIVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr _GetTensorflowAPIVersion();
         [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorFlowAPIVersion")]
         public string GetTensorflowAPIVersion()
@@ -595,6 +595,32 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
+        // APP VERSION
+        [DllImport(@"TensorFlowAppCPP.dll", EntryPoint = @"GetTensorFlowAPPVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr _GetTensorflowAPPVersion();
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorFlowAPPVersion")]
+        public string GetTensorflowAPPVersion()
+        {
+            //
+            string return_value_str = string.Empty;
+            //
+            try
+            {
+
+                IntPtr intptr        = _GetTensorflowAPPVersion();
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                return_value_str     = unicodeString;
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message + " " + ex.StackTrace;
+
+                //LogModel.Log(msg);
+            }
+            return return_value_str;
+        }
+
         #endregion
 
         #endregion
