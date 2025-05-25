@@ -20,11 +20,11 @@ namespace Pruebas.Cliente.Controllers
         // CallingConvention.Cdecl = x86 DLL
 
         #region "TESSERACT"
-        const string dll_Tesseract = "tesseract.dll";
-        const string fn_GetTesseractOcrOutput = "GetTesseractOcrOutput";
+        const string dll_Tesseract                = "tesseract.dll";
+        const string fn_GetTesseractOcrOutput     = "GetTesseractOcrOutput";
         const string fn_GetTesseractOcrOutputPath = "GetTesseractOcrOutputPath";
-        const string fn_GetTesseractVersion = "GetTesseractVersion";
-        const string fn_GetTesseractAppVersion = "GetTesseractAppVersion";
+        const string fn_GetTesseractVersion       = "GetTesseractVersion";
+        const string fn_GetTesseractAppVersion    = "GetTesseractAppVersion";
 
         //////////////////////////////////////////////////////////////
         /// COMMON FUNCTION
@@ -328,7 +328,7 @@ namespace Pruebas.Cliente.Controllers
         ////////////////////////////////////////////////////////////
         // OPENCV GET APP VERSION
         ////////////////////////////////////////////////////////////
-        ///
+
         [DllImport(dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr GetOpenCvAppVersion();
 
@@ -336,18 +336,18 @@ namespace Pruebas.Cliente.Controllers
         public string _GetOpenCvAppVersion()
         {
             string return_value_str = string.Empty;
-            IntPtr intptr           = IntPtr.Zero;
+            IntPtr intptr = IntPtr.Zero;
 
             try
             {
                 // Call the external DLL function to get the result
-                intptr               = GetOpenCvAppVersion();
+                intptr = GetOpenCvAppVersion();
 
                 // Convert the IntPtr to a string
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
 
                 // Assign the result to the return value
-                return_value_str     = unicodeString;
+                return_value_str = unicodeString;
 
             }
             catch (Exception ex)
@@ -358,6 +358,42 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
+
+        ////////////////////////////////////////////////////////////
+        // OPENCV GET API VERSION
+        ////////////////////////////////////////////////////////////
+
+        [DllImport(dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr GetOpenCvAPIVersion();
+
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetOpenCvAPIVersion")]
+        public string _GetOpenCvAPIVersion()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr           = IntPtr.Zero;
+
+            try
+            {
+                // Call the external DLL function to get the result
+                intptr                = GetOpenCvAPIVersion();
+
+                // Convert the IntPtr to a string
+                string unicodeString  = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str      = unicodeString;
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
+
+
         #endregion
 
         #region "ALGORITHM"
@@ -535,10 +571,10 @@ namespace Pruebas.Cliente.Controllers
 
         #region "TENSORFLOW"
         // DIJKSTRA
-        [DllImport(@"TensorFlowAppC.dll", EntryPoint = @"GetTensorFlowVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr _GetTensorflowVersion();
-        [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorflowVersion")]
-        public string GetTensorflowVersion()
+        [DllImport(@"TensorFlowAppC.dll", EntryPoint = @"GetTensorFlowAPIVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr _GetTensorflowAPIVersion();
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorFlowAPIVersion")]
+        public string GetTensorflowAPIVersion()
         {
             //
             string return_value_str = string.Empty;
@@ -546,7 +582,7 @@ namespace Pruebas.Cliente.Controllers
             try
             {
 
-                IntPtr intptr        = _GetTensorflowVersion();
+                IntPtr intptr        = _GetTensorflowAPIVersion();
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
 
                 return_value_str     = unicodeString;
