@@ -570,6 +570,7 @@ namespace Pruebas.Cliente.Controllers
         #endregion
 
         #region "TENSORFLOW"
+
         // API VERSION
         [DllImport(@"TensorFlowAppCPP.dll", EntryPoint = @"GetTensorFlowAPIVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr _GetTensorflowAPIVersion();
@@ -582,10 +583,10 @@ namespace Pruebas.Cliente.Controllers
             try
             {
 
-                IntPtr intptr        = _GetTensorflowAPIVersion();
+                IntPtr intptr = _GetTensorflowAPIVersion();
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
 
-                return_value_str     = unicodeString;
+                return_value_str = unicodeString;
             }
             catch (Exception ex)
             {
@@ -595,7 +596,8 @@ namespace Pruebas.Cliente.Controllers
             }
             return return_value_str;
         }
-        // APP VERSION
+
+        // APP VERSION                                     
         [DllImport(@"TensorFlowAppCPP.dll", EntryPoint = @"GetTensorFlowAPPVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr _GetTensorflowAPPVersion();
         [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorFlowAPPVersion")]
@@ -603,11 +605,12 @@ namespace Pruebas.Cliente.Controllers
         {
             //
             string return_value_str = string.Empty;
+            IntPtr intptr           = IntPtr.Zero;
             //
             try
             {
 
-                IntPtr intptr        = _GetTensorflowAPPVersion();
+                intptr               = _GetTensorflowAPPVersion();
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
 
                 return_value_str     = unicodeString;
