@@ -571,8 +571,10 @@ namespace Pruebas.Cliente.Controllers
 
         #region "TENSORFLOW"
 
+        private const string tensorFlowDllName = @"TensorFlowAppCPP.dll";
+
         // API VERSION
-        [DllImport(@"TensorFlowAppCPP.dll", EntryPoint = @"GetTensorFlowAPIVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(tensorFlowDllName, EntryPoint = @"GetTensorFlowAPIVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr _GetTensorflowAPIVersion();
         [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorFlowAPIVersion")]
         public string GetTensorflowAPIVersion()
@@ -597,33 +599,18 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
-        // APP VERSION                                     
-        [DllImport(@"TensorFlowAppCPP.dll", EntryPoint = @"GetTensorFlowAPPVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr _GetTensorflowAPPVersion();
+        // APP VERSION
+        [DllImport(tensorFlowDllName, EntryPoint = @"GetTensorFlowAppVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr _GetTensorFlowAppVersion();
         [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorFlowAPPVersion")]
         public string GetTensorflowAPPVersion()
         {
-            //
-            string return_value_str = string.Empty;
-            IntPtr intptr           = IntPtr.Zero;
-            //
-            try
-            {
+            IntPtr ptr = _GetTensorFlowAppVersion();
+            if (ptr == IntPtr.Zero)
+                return null;
 
-                intptr               = _GetTensorflowAPPVersion();
-                string unicodeString = Marshal.PtrToStringUTF8(intptr);
-
-                return_value_str     = unicodeString;
-            }
-            catch (Exception ex)
-            {
-                string msg = ex.Message + " " + ex.StackTrace;
-
-                //LogModel.Log(msg);
-            }
-            return return_value_str;
+            return Marshal.PtrToStringAnsi(ptr);
         }
-
         #endregion
 
         #endregion

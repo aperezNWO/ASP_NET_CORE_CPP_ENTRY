@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cKc7Ej6x87ohQwPKeyj9zw0vXJD+n8OymWYl1Z9LzJM=",
+  "Hash": "JRGlCcMJcK4zU7mGR3DuLlkxXnrLDasOxUyjYQjgV4o=",
   "Source": "ASP_NET_CORE_CPP_ENTRY",
   "BasePath": "_content/ASP_NET_CORE_CPP_ENTRY",
   "Mode": "Default",
@@ -1459,6 +1459,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\TensorFlowAppCPP.dll",
+      "SourceId": "ASP_NET_CORE_CPP_ENTRY",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\",
+      "BasePath": "_content/ASP_NET_CORE_CPP_ENTRY",
+      "RelativePath": "TensorFlowAppCPP.dll",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\TensorFlowAppCPP.dll"
     },
     {
       "Identity": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\tessdata\\configs\\alto",

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\ASP_NET_CORE_CPP_ENTRY.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\TensorFlowAppCPP.dll",
+      "PackagePath": "staticwebassets\\TensorFlowAppCPP.dll"
+    },
+    {
       "Id": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\wwwroot\\css\\Datepicker\\images\\ui-icons_444444_256x240.png",
       "PackagePath": "staticwebassets\\css\\Datepicker\\images\\ui-icons_444444_256x240.png"
     },
