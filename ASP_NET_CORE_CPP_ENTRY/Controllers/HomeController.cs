@@ -433,6 +433,12 @@ namespace Pruebas.Cliente.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet("_GetSort_CPP")]
         public string _GetSort_CPP(ushort p_sortAlgoritm, string p_unsortedList = "")
         {
+            if (string.IsNullOrWhiteSpace(p_unsortedList))
+            {
+                _logger.LogWarning("p_unsortedList is null or empty.");
+                return "ERROR: Invalid input list.";
+            }
+
             //--------------------------------------------------
             // DECLARACION DE VARIABLES 
             //--------------------------------------------------
@@ -442,19 +448,19 @@ namespace Pruebas.Cliente.Controllers
             {
                 //
                 IntPtr intptr = SortBenchMark_GetSort_CPP(p_sortAlgoritm, p_unsortedList);
-                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+                //string unicodeString = Marshal.PtrToStringUTF8(intptr);
+                string unicodeString = Marshal.PtrToStringAnsi(intptr); // For ANSI encoding
+
                 //
                 unicodeString = unicodeString.Replace("~", "■");
-                status = unicodeString;
+                status        = unicodeString;
+
+                //Marshal.FreeHGlobal(intptr);
             }
             catch (Exception ex)
             {
-                /*
-                LogModel.Log(string.Format("SORT_BENCHMARK_ERROR_CPP. ='{0}'-'{1}'"
-                                                             , ex.Message
-                                                             , ex.StackTrace)
-                            , string.Empty
-                            , LogModel.LogType.Error);*/
+                _logger.LogError(ex, "An error occurred in _GetSort_CPP.");
+                return "Internal Server Error";
             }
             //
             return status;
