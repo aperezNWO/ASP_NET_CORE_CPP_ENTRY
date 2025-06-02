@@ -427,29 +427,28 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
-        // SORTBENCHMARK
+        // SORTBENCHMARK - HTML
         [DllImport(@"Algorithm.dll", EntryPoint = @"SortBenchMark_GetSort_CPP", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr SortBenchMark_GetSort_CPP(ushort p_sortAlgoritm, string p_unsortedList);
         [Microsoft.AspNetCore.Mvc.HttpGet("_GetSort_CPP")]
         public string _GetSort_CPP(ushort p_sortAlgoritm, string p_unsortedList = "")
         {
+            //
             if (string.IsNullOrWhiteSpace(p_unsortedList))
             {
                 _logger.LogWarning("p_unsortedList is null or empty.");
                 return "ERROR: Invalid input list.";
             }
 
-            //--------------------------------------------------
-            // DECLARACION DE VARIABLES 
-            //--------------------------------------------------
+            //
             string status = "OK";
             //
             try
             {
                 //
-                IntPtr intptr = SortBenchMark_GetSort_CPP(p_sortAlgoritm, p_unsortedList);
-                //string unicodeString = Marshal.PtrToStringUTF8(intptr);
-                string unicodeString = Marshal.PtrToStringAnsi(intptr); // For ANSI encoding
+                IntPtr intptr           = SortBenchMark_GetSort_CPP(p_sortAlgoritm, p_unsortedList);
+                //string unicodeString  = Marshal.PtrToStringUTF8(intptr);
+                string unicodeString    = Marshal.PtrToStringAnsi(intptr); // For ANSI encoding
 
                 //
                 unicodeString = unicodeString.Replace("~", "■");
@@ -464,6 +463,36 @@ namespace Pruebas.Cliente.Controllers
             }
             //
             return status;
+        }
+
+        // SORTBENCHMARK - JSON
+
+        [DllImport(@"Algorithm.dll", EntryPoint = @"SortBenchMark_GetSort_CPP_JSON", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr SortBenchMark_GetSort_CPP_JSON(ushort p_sortAlgoritm, string p_unsortedList);
+        
+        [Microsoft.AspNetCore.Mvc.HttpGet("_GetSort_CPP_JSON")]
+        public IActionResult _GetSort_CPP_JSON(ushort p_sortAlgoritm, string p_unsortedList = "")
+        {
+            if (string.IsNullOrWhiteSpace(p_unsortedList))
+            {
+                _logger.LogWarning("p_unsortedList is null or empty.");
+                return Content("ERROR: Invalid input list.", "application/json");
+            }
+
+            try
+            {
+                // Call the C++ function
+                IntPtr intptr = SortBenchMark_GetSort_CPP_JSON(p_sortAlgoritm, p_unsortedList);
+                string jsonString = Marshal.PtrToStringAnsi(intptr); // Get the JSON string
+
+                // Return the raw JSON string with the correct content type
+                return Content(jsonString, "application/json");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred in _GetSort_CPP_JSON.");
+                return Content("Internal Server Error", "application/json");
+            }
         }
 
         // REGEX
