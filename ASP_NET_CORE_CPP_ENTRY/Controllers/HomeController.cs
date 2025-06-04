@@ -403,27 +403,27 @@ namespace Pruebas.Cliente.Controllers
         // DIJKSTRA
         [DllImport(@"Algorithm.dll", EntryPoint = @"Dijkstra_GenerateRandomVertex_CPP", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr _Dijkstra_GenerateRandomVertex_CPP(int p_vertexSize, int sourcePoint);
+
         [Microsoft.AspNetCore.Mvc.HttpGet("GenerateRandomVertex_CPP")]
         public string GenerateRandomVertex_CPP(ushort p_vertexSize, ushort p_sourcePoint)
         {
-            //
             string return_value_str = string.Empty;
-            //
+
             try
             {
-
-                IntPtr intptr = _Dijkstra_GenerateRandomVertex_CPP(p_vertexSize, p_sourcePoint);
+                IntPtr intptr        = _Dijkstra_GenerateRandomVertex_CPP(p_vertexSize, p_sourcePoint);
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
-                unicodeString = unicodeString.Replace("~", "■");
-                unicodeString = unicodeString.Replace("=", "≡");
+                unicodeString        = unicodeString.Replace("~", "■");
+                unicodeString        = unicodeString.Replace("=", "≡");
+
                 return_value_str = unicodeString;
+
             }
             catch (Exception ex)
             {
-                string msg = ex.Message + " " + ex.StackTrace;
-
-                //LogModel.Log(msg);
+                throw ex;
             }
+
             return return_value_str;
         }
 
