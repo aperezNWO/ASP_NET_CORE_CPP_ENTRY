@@ -599,6 +599,29 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
+        // GET C++ STD VERSION
+        [DllImport(@"Algorithm.dll", EntryPoint = @"GetCPPSTDVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr _GetCPPSTDVersion();
+        [Microsoft.AspNetCore.Mvc.HttpGet("Algorithm_GetCPPSTDVersion")]
+        public string GetCPPSTDVersion()
+        {
+            //
+            string return_value_str = string.Empty;
+            //
+            try
+            {
+                IntPtr intptr        = _GetCPPSTDVersion();
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+                return_value_str     = unicodeString;
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message + " " + ex.StackTrace;
+
+                // LogModel.Log(msg);
+            }
+            return return_value_str;
+        }
 
         #endregion
 
