@@ -669,6 +669,19 @@ namespace Pruebas.Cliente.Controllers
 
             return Marshal.PtrToStringAnsi(ptr);
         }
+
+        // C++ STD VERSION
+        [DllImport(tensorFlowDllName, EntryPoint = @"GetCPPSTDVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr _TensorFlow_GetCPPSTDVersion();
+        [Microsoft.AspNetCore.Mvc.HttpGet("TensorFlow_GetCPPSTDVersion")]
+        public string TensorFlow_GetCPPSTDVersion()
+        {
+            IntPtr ptr = _TensorFlow_GetCPPSTDVersion();
+            if (ptr == IntPtr.Zero)
+                return null;
+
+            return Marshal.PtrToStringAnsi(ptr);
+        }
         #endregion
 
         #endregion
