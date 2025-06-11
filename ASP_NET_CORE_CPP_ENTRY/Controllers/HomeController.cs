@@ -25,6 +25,7 @@ namespace Pruebas.Cliente.Controllers
         const string fn_GetTesseractOcrOutputPath = "GetTesseractOcrOutputPath";
         const string fn_GetTesseractVersion       = "GetTesseractVersion";
         const string fn_GetTesseractAppVersion    = "GetTesseractAppVersion";
+        const string fn_GetTesseractCPPSTDVersion = "GetTesseract_CPPSTDVersion";
 
         //////////////////////////////////////////////////////////////
         /// COMMON FUNCTION
@@ -98,6 +99,39 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
+        //////////////////////////////////////////////////////////////
+        /// GetTesseract_CPPSTDVersion
+        //////////////////////////////////////////////////////////////
+        [DllImport(@"" + dll_Tesseract + "", EntryPoint = @"" + fn_GetTesseractCPPSTDVersion + "", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr _GetTesseractCPPSTDVersion();
+
+        [Microsoft.AspNetCore.Mvc.HttpGet(fn_GetTesseractCPPSTDVersion)]
+        public string GetTesseractCPPSTDVersion()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr = IntPtr.Zero;
+
+            try
+            {
+                // Call the external DLL function to get the result
+                intptr               = _GetTesseractCPPSTDVersion();
+
+                // Convert the IntPtr to a string
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str = unicodeString;
+
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
 
         //////////////////////////////////////////////////////////////
         /// _GetTesseractOcrOutput

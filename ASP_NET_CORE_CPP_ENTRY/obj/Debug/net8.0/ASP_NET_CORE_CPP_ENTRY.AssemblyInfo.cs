@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASP_NET_CORE_CPP_ENTRY")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.8")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e560cabb0dcca77308700f2b119b48099f5ccc36")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8a7baf96e21cd5c8701a0ac8a5c1b1f065f1957")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASP_NET_CORE_CPP_ENTRY")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASP_NET_CORE_CPP_ENTRY")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.8")]
