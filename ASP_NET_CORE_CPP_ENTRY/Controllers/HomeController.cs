@@ -229,18 +229,17 @@ namespace Pruebas.Cliente.Controllers
         #endregion
 
         #region "opencv"
-        const string dll_OpenCv          = "OpenCvDll.dll";
-        const string endPoint_OpenCv     = "OpenCvReadImage";
-
+        const string dll_OpenCv            = "OpenCvDll.dll";
+        const string endPoint_OpenCv       = "OpenCvReadImage";
+        const string CPPSTDVersion_OpenCv  = "OpenCv_GetCPPSTDVersion";
 
         ////////////////////////////////////////////////////////////
         // OPENCV READ IMAGE (TEST)
         ////////////////////////////////////////////////////////////
 
-
+        // READ IMAGE
         [DllImport(dll_OpenCv , CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr OpenCvReadImage();
-
         [Microsoft.AspNetCore.Mvc.HttpGet(endPoint_OpenCv)]
         public string _OpenCvReadImage()
         {
@@ -251,6 +250,37 @@ namespace Pruebas.Cliente.Controllers
             {
                 // Call the external DLL function to get the result
                 intptr = OpenCvReadImage();
+
+                // Convert the IntPtr to a string
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str = unicodeString;
+
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
+
+        // C++ STD VERSION
+        [DllImport(dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr OpenCv_GetCPPSTDVersion();
+        [Microsoft.AspNetCore.Mvc.HttpGet(CPPSTDVersion_OpenCv)]
+        public string _OpenCv_GetCPPSTDVersion()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr = IntPtr.Zero;
+
+            try
+            {
+                // Call the external DLL function to get the result
+                intptr = OpenCv_GetCPPSTDVersion();
 
                 // Convert the IntPtr to a string
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
