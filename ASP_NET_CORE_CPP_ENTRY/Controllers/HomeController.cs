@@ -457,7 +457,70 @@ namespace Pruebas.Cliente.Controllers
             return return_value_str;
         }
 
+        ////////////////////////////////////////////////////////////
+        // OPENCV GENERATE FRACTAL JULIA
+        ////////////////////////////////////////////////////////////
+        [DllImport(dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
+        private static extern int generateJulia();
 
+        [HttpGet("generateJulia")]
+        public IActionResult GenerateJuliaRandom()
+        {
+            // Call the C++ DLL function
+            int result = generateJulia();
+            if (result != 0)
+            {
+                return StatusCode(500, "Failed to generate Julia fractal.");
+            }
+
+            // Path to the generated image
+            string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "julia.png");
+
+            // Check if the image file exists
+            if (!System.IO.File.Exists(imagePath))
+            {
+                return NotFound("Generated image not found.");
+            }
+
+            // Read the image file as a byte array
+            byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+
+            // Return the image as a response with the appropriate content type
+            return File(imageBytes, "image/jpeg");
+        }
+
+        ////////////////////////////////////////////////////////////
+        // OPENCV GENERATE FRACTAL JULIA
+        // http://localhost:83/generateJuliaParams?maxIterations=500&realPart=0.355&imagPart=0.355
+        ////////////////////////////////////////////////////////////
+        [DllImport(dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
+        private static extern int generateJuliaParams(int maxIterations, double realPart, double imagPart);
+
+        [HttpGet("generateJuliaParams")]
+        public IActionResult GenerateJuliaParams(int maxIterations, double realPart, double imagPart)
+        {
+            // Call the C++ DLL function
+            int result = generateJuliaParams(maxIterations, realPart, imagPart);
+            if (result != 0)
+            {
+                return StatusCode(500, "Failed to generate Julia fractal.");
+            }
+
+            // Path to the generated image
+            string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "julia.png");
+
+            // Check if the image file exists
+            if (!System.IO.File.Exists(imagePath))
+            {
+                return NotFound("Generated image not found.");
+            }
+
+            // Read the image file as a byte array
+            byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+
+            // Return the image as a response with the appropriate content type
+            return File(imageBytes, "image/jpeg");
+        }
         #endregion
 
         #region "ALGORITHM"
