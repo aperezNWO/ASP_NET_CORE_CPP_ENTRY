@@ -809,6 +809,90 @@ namespace Pruebas.Cliente.Controllers
 
             return Marshal.PtrToStringAnsi(ptr);
         }
+
+        // PLAY TICTACTOE GAME
+        /*
+        // Must be in an unsafe context
+        private static unsafe int[] CopyFixedArray(int* fixedArray, int length)
+        {
+            var managedArray = new int[length];
+            for (int i = 0; i < length; ++i)
+            {
+                managedArray[i] = fixedArray[i];
+            }
+            return managedArray;
+        }
+
+        private static unsafe int[] GetHistoryState(int* history, int index)
+        {
+            var state = new int[9];
+            int offset = index * 9;
+            for (int i = 0; i < 9; ++i)
+            {
+                state[i] = history[offset + i];
+            }
+            return state;
+        }
+
+        //
+        [StructLayout(LayoutKind.Sequential)]
+        public unsafe struct TicTacToeResultOnline
+        {
+            public fixed int FinalBoard[9];
+            public fixed int Moves[9];
+            public int Winner;
+            public int MoveCount;
+            public fixed int History[90]; // Flatten 10x9 into linear array
+            public int HistoryCount;
+        };
+
+        //
+        [DllImport(tensorFlowDllName, EntryPoint = @"PlayTicTacToeGameWithHistory", CallingConvention = CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool _PlayTicTacToeGameWithHistory(ref TicTacToeResultOnline result);
+
+        [HttpGet("PlayTicTacToeGame")]
+        public IActionResult PlayTicTacToeGame()
+        {
+            var result = new TicTacToeResultOnline();
+            bool success;
+
+            try
+            {
+                success = _PlayTicTacToeGameWithHistory(ref result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Failed to invoke native function.", details = ex.Message });
+            }
+
+            if (!success)
+            {
+                return StatusCode(500, new { error = "Native function returned failure." });
+            }
+
+            // ✅ Use unsafe helpers
+            var finalBoard = CopyFixedArray(result.FinalBoard, 9);
+            var moves = CopyFixedArray(result.Moves, result.MoveCount);
+
+            var history = new List<int[]>();
+            for (int s = 0; s < result.HistoryCount; ++s)
+            {
+                history.Add(GetHistoryState(result.History, s));
+            }
+
+            return Ok(new
+            {
+                finalBoard,
+                moves,
+                winner = result.Winner,
+                moveCount = result.MoveCount,
+                history,
+                success = true
+            });
+        }
+        */
+
         #endregion
 
         #endregion

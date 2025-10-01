@@ -5,16 +5,16 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <PlatformTarget>x64</PlatformTarget>
-    <AssemblyVersion>1.0.11</AssemblyVersion>
-    <FileVersion>1.0.11</FileVersion>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyVersion>1.0.10</AssemblyVersion>
+    <FileVersion>1.0.10</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Models\PruebasContext.cs" />
+    <Compile Update="Controllers\TicTacToeController.cs">
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</Compile>
   </ItemGroup>
-
-
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.2" />
@@ -36,14 +36,6 @@
     <Folder Include="Interface\" />
     <Folder Include="Repositorio\" />
     <Folder Include="_Doc\" />
-	<Folder Include="Interop\" />
-
-  </ItemGroup>
-
-  <ItemGroup>
-	  <Compile Update="Interop\TicTacToeNative.cs">
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	  </Compile>
   </ItemGroup>
 
 </Project>
