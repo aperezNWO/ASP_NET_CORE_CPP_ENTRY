@@ -1,36 +1,46 @@
 ﻿// Interop/TicTacToeNative.cs
+using System;
 using System.Runtime.InteropServices;
 
 namespace Pruebas.Cliente.Interop
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct TicTacToeResult // ← This struct uses fixed buffers → needs unsafe
-    {
-        public fixed int FinalBoard[9];
-        public fixed int Moves[9];
-        public int Winner;
-        public int MoveCount;
-        public fixed int History[90]; // 10 states × 9 cells
-        public int HistoryCount;
-    }
-
     public static class TicTacToeNative
     {
-        private const string DllName = @"TensorFlowAppCPP.dll";
+        private const string DllName = @"TensorFlowAppCPP.dll"; // Or libtictactoe.so
+
+        [StructLayout(LayoutKind.Sequential)]
+        public unsafe struct TicTacToeResultOnline
+        {
+            public fixed int finalBoard[9];     // Not int*, but fixed array
+            public fixed int moves[9];          // Same here
+            public int winner;
+            public int moveCount;
+            public fixed int history[90];       // 10 x 9 board states
+            public int historyCount;
+        }
 
         [DllImport(DllName, EntryPoint = "PlayTicTacToeGameWithHistory", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool PlayGame(ref TicTacToeResult result);
+        private static extern bool PlayGameInternal(
+            ref TicTacToeResultOnline result,
+            int aiMode,
+            double temperature);
 
-        public static bool TryPlayGame(out TicTacToeResult result)
+        public static bool TryPlayGame(int aiMode, double temperature, out TicTacToeResultOnline result)
         {
-            result = new TicTacToeResult();
+            result = new TicTacToeResultOnline();
             try
             {
-                return PlayGame(ref result);
+                return PlayGameInternal(ref result, aiMode, temperature);
             }
-            catch
+            catch (DllNotFoundException)
             {
+                Console.WriteLine($"❌ DLL '{DllName}' not found.");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Error: {ex.Message}");
                 return false;
             }
         }
