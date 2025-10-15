@@ -1,0 +1,1 @@
+copiar todos los archivos *.dll a hosting carpeta c:\msys\mingw64\bin para librerias de opencv c++
