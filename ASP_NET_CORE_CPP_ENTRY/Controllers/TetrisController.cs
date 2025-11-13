@@ -11,28 +11,54 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
     {
         private static IntPtr _gameInstance = IntPtr.Zero;
         private static readonly object _lock = new object();
-        private static int _boardWidth = 0;
-        private static int _boardHeight = 0;
+        private static int _boardWidth = 10;
+        private static int _boardHeight = 20;
+        private static bool _dllLoaded = false;
 
         static TetrisController()
         {
-            // Get board dimensions once
-            _boardWidth = TetrisNative.TETRIS_GetBoardWidth();
-            _boardHeight = TetrisNative.TETRIS_GetBoardHeight();
+            try
+            {
+                _boardWidth = TetrisNative.TETRIS_GetBoardWidth();
+                _boardHeight = TetrisNative.TETRIS_GetBoardHeight();
+                _dllLoaded = true;
+                Console.WriteLine("✅ DLL loaded successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"❌ DLL load failed: {ex.Message}");
+                _dllLoaded = false;
+            }
+        }
+
+        [HttpGet("health")]
+        public IActionResult HealthCheck()
+        {
+            return Ok(new { dllLoaded = _dllLoaded, gameCreated = _gameInstance != IntPtr.Zero });
         }
 
         [HttpPost("create")]
         public IActionResult CreateGame()
         {
+            if (!_dllLoaded) return StatusCode(500, new { error = "DLL not loaded" });
+
             lock (_lock)
             {
-                if (_gameInstance != IntPtr.Zero)
+                try
                 {
-                    TetrisNative.TETRIS_DestroyGame(_gameInstance);
+                    if (_gameInstance != IntPtr.Zero)
+                        TetrisNative.TETRIS_DestroyGame(_gameInstance);
+
+                    _gameInstance = TetrisNative.TETRIS_CreateGame();
+                    return _gameInstance != IntPtr.Zero
+                        ? Ok(new { message = "Game created" })
+                        : StatusCode(500, new { error = "Failed to create game" });
                 }
-                _gameInstance = TetrisNative.TETRIS_CreateGame();
+                catch (Exception ex)
+                {
+                    return StatusCode(500, new { error = ex.Message });
+                }
             }
-            return Ok(new { message = "Game created" });
         }
 
         [HttpPost("destroy")]
@@ -54,9 +80,12 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         {
             lock (_lock)
             {
+                if (_gameInstance == IntPtr.Zero)
+                    return BadRequest(new { error = "Game not created" });
+
                 TetrisNative.TETRIS_Reset(_gameInstance);
+                return Ok();
             }
-            return Ok();
         }
 
         [HttpPost("step")]
@@ -64,9 +93,10 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         {
             lock (_lock)
             {
+                if (_gameInstance == IntPtr.Zero) return BadRequest(new { error = "Game not created" });
                 TetrisNative.TETRIS_Step(_gameInstance);
+                return Ok();
             }
-            return Ok();
         }
 
         [HttpGet("state")]
@@ -75,12 +105,11 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             lock (_lock)
             {
                 if (_gameInstance == IntPtr.Zero)
-                    return BadRequest(new { error = "Game not created." });
+                    return BadRequest(new { error = "Game not created" });
 
                 try
                 {
-                    // Create DTO with dimensions
-                    var state = new TetrisStateDto(_boardWidth, _boardHeight)
+                    var state = new TetrisStateDto
                     {
                         Score = TetrisNative.TETRIS_GetScore(_gameInstance),
                         Lines = TetrisNative.TETRIS_GetLines(_gameInstance),
@@ -89,11 +118,23 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
                         GameOver = TetrisNative.TETRIS_IsGameOver(_gameInstance) != 0
                     };
 
-                    // Copy directly to flat array
                     IntPtr matrixPtr = TetrisNative.TETRIS_GetBoardMatrix(_gameInstance);
-                    if (matrixPtr != IntPtr.Zero)
+                    if (matrixPtr == IntPtr.Zero)
+                        return StatusCode(500, new { error = "Board matrix is null" });
+
+                    int totalCells = _boardWidth * _boardHeight;
+                    int[] flatMatrix = new int[totalCells];
+                    Marshal.Copy(matrixPtr, flatMatrix, 0, totalCells);
+
+                    // Convert to jagged array
+                    state.BoardMatrix = new int[_boardHeight][];
+                    for (int y = 0; y < _boardHeight; y++)
                     {
-                        Marshal.Copy(matrixPtr, state.BoardMatrix, 0, state.BoardMatrix.Length);
+                        state.BoardMatrix[y] = new int[_boardWidth];
+                        for (int x = 0; x < _boardWidth; x++)
+                        {
+                            state.BoardMatrix[y][x] = flatMatrix[y * _boardWidth + x];
+                        }
                     }
 
                     return Ok(state);
@@ -108,14 +149,16 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         [HttpPost("train")]
         public IActionResult TrainAI([FromBody] TrainRequest request)
         {
-            if (string.IsNullOrEmpty(request.WeightsFile))
+            if (!_dllLoaded) return StatusCode(500, new { error = "DLL not loaded" });
+            try
             {
-                request.WeightsFile = "tetris_weights.txt";
+                TetrisNative.TETRIS_TrainAI(request.WeightsFile, request.Generations);
+                return Ok(new { message = "Training completed", file = request.WeightsFile });
             }
-
-            // Run training (this is blocking - consider async for production)
-            TetrisNative.TETRIS_TrainAI(request.WeightsFile, request.Generations);
-            return Ok(new { message = "Training completed", file = request.WeightsFile });
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
         }
 
         [HttpPost("load-ai")]
@@ -123,9 +166,10 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         {
             lock (_lock)
             {
+                if (_gameInstance == IntPtr.Zero) return BadRequest(new { error = "Game not created" });
                 TetrisNative.TETRIS_LoadAI(_gameInstance, request.WeightsFile);
+                return Ok();
             }
-            return Ok();
         }
 
         [HttpGet("ai-weights")]
@@ -133,9 +177,11 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         {
             lock (_lock)
             {
+                if (_gameInstance == IntPtr.Zero) return BadRequest(new { error = "Game not created" });
+
                 double[] weights = new double[4];
                 TetrisNative.TETRIS_GetAIWeights(_gameInstance, weights);
-                return Ok(new AiWeightsDto
+                return Ok(new AIWeightsDto
                 {
                     LinesWeight = weights[0],
                     HeightWeight = weights[1],
@@ -146,14 +192,16 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         }
 
         [HttpPost("ai-weights")]
-        public IActionResult SetAIWeights([FromBody] AiWeightsDto weights)
+        public IActionResult SetAIWeights([FromBody] AIWeightsDto weights)
         {
             lock (_lock)
             {
+                if (_gameInstance == IntPtr.Zero) return BadRequest(new { error = "Game not created" });
+
                 double[] weightArray = { weights.LinesWeight, weights.HeightWeight, weights.HolesWeight, weights.BumpinessWeight };
                 TetrisNative.TETRIS_SetAIWeights(_gameInstance, weightArray);
+                return Ok();
             }
-            return Ok();
         }
 
         [HttpPost("toggle-auto-play")]
@@ -161,21 +209,11 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         {
             lock (_lock)
             {
+                if (_gameInstance == IntPtr.Zero) return BadRequest(new { error = "Game not created" });
                 TetrisNative.TETRIS_ToggleAutoPlay(_gameInstance);
+                return Ok();
             }
-            return Ok();
         }
-    }
-
-    public class TrainRequest
-    {
-        public string WeightsFile { get; set; } = "tetris_weights.txt";
-        public int Generations { get; set; } = 20;
-    }
-
-    public class LoadAIRequest
-    {
-        public string WeightsFile { get; set; }
     }
 }
 

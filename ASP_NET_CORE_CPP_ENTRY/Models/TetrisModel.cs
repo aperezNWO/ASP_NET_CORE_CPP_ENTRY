@@ -7,25 +7,37 @@
         public int Level { get; set; }
         public int NextPiece { get; set; }
         public bool GameOver { get; set; }
-        // Single flat array - much faster to serialize
-        public int[] BoardMatrix { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
 
-        public TetrisStateDto(int width, int height)
+        // Jagged array - array of arrays for Angular
+        public int[][] BoardMatrix { get; set; }
+
+        public TetrisStateDto()
         {
-            Width = width;
-            Height = height;
-            BoardMatrix = new int[width * height];
+            // Initialize with 20 rows x 10 columns
+            BoardMatrix = new int[20][];
+            for (int i = 0; i < 20; i++)
+            {
+                BoardMatrix[i] = new int[10];
+            }
         }
     }
 
-
-    public class AiWeightsDto
+    public class AIWeightsDto
     {
         public double LinesWeight { get; set; }
         public double HeightWeight { get; set; }
         public double HolesWeight { get; set; }
         public double BumpinessWeight { get; set; }
+    }
+
+    public class TrainRequest
+    {
+        public string WeightsFile { get; set; } = "tetris_weights.txt";
+        public int Generations { get; set; } = 20;
+    }
+
+    public class LoadAIRequest
+    {
+        public string WeightsFile { get; set; }
     }
 }
