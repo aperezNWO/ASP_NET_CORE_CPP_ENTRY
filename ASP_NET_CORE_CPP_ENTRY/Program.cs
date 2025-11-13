@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+﻿using ASP_NET_CORE_CPP_ENTRY.Services;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.EntityFrameworkCore;
 using Pruebas.Cliente.Models;
 
@@ -19,6 +20,8 @@ builder.Services.AddCors(options =>
                        .AllowAnyMethod()
                        .AllowAnyHeader());
 });
+
+builder.Services.AddScoped<TetrisService>();
 
 var app = builder.Build();
 
