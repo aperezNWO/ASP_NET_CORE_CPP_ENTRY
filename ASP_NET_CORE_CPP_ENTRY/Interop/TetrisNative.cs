@@ -53,6 +53,9 @@ namespace Pruebas.Cliente.Interop
         [DllImport(DLL_PATH, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr TETRIS_GetBoardMatrix(IntPtr game);
 
+        [DllImport(DLL_PATH, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr TETRIS_GetBoardMatrixWithPreview(IntPtr game);
+
         // ==================== AI Functions ====================
         [DllImport(DLL_PATH, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
         public static extern void TETRIS_TrainAI([MarshalAs(UnmanagedType.LPStr)] string weightsFile, int generations);

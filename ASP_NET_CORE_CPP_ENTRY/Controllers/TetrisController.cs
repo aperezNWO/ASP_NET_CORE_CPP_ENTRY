@@ -99,6 +99,54 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             }
         }
 
+        [HttpGet("state-with-preview")]
+        public IActionResult GetStateWithPreview()
+        {
+            lock (_lock)
+            {
+                if (_gameInstance == IntPtr.Zero)
+                    return BadRequest(new { error = "Game not created" });
+
+                try
+                {
+                    var state = new TetrisStateDto
+                    {
+                        Score = TetrisNative.TETRIS_GetScore(_gameInstance),
+                        Lines = TetrisNative.TETRIS_GetLines(_gameInstance),
+                        Level = TetrisNative.TETRIS_GetLevel(_gameInstance),
+                        NextPiece = TetrisNative.TETRIS_GetNextPiece(_gameInstance),
+                        GameOver = TetrisNative.TETRIS_IsGameOver(_gameInstance) != 0
+                    };
+
+                    // Get board with preview piece at top
+                    IntPtr matrixPtr = TetrisNative.TETRIS_GetBoardMatrixWithPreview(_gameInstance);
+                    if (matrixPtr == IntPtr.Zero)
+                        return StatusCode(500, new { error = "Board matrix is null" });
+
+                    int totalCells = _boardWidth * _boardHeight;
+                    int[] flatMatrix = new int[totalCells];
+                    Marshal.Copy(matrixPtr, flatMatrix, 0, totalCells);
+
+                    // Convert to jagged array
+                    state.BoardMatrix = new int[_boardHeight][];
+                    for (int y = 0; y < _boardHeight; y++)
+                    {
+                        state.BoardMatrix[y] = new int[_boardWidth];
+                        for (int x = 0; x < _boardWidth; x++)
+                        {
+                            state.BoardMatrix[y][x] = flatMatrix[y * _boardWidth + x];
+                        }
+                    }
+
+                    return Ok(state);
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, new { error = ex.Message });
+                }
+            }
+        }
+
         [HttpGet("state")]
         public IActionResult GetState()
         {
