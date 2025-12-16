@@ -15,6 +15,6 @@ git pull
 
 (debe decir "Everything up to date)
 
-git add * && git commit -m"Application ASP_NET_CORE_CPP_ENTRY v[1.0.18]" -m"1) Linear Regression Entry Points " -a && git push && git pull
+git add * && git commit -m"Application ASP_NET_CORE_CPP_ENTRY v[1.0.19]" -m"1) Ocr Entry Points (eng version) " -a && git push && git pull
 
 
