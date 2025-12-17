@@ -10,9 +10,10 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
     [Route("api/[controller]")]
     public class OcrController : ControllerBase
     {
-
+        //
         private static bool _dllLoaded = false;
 
+        //
         static OcrController()
         {
             try
@@ -28,11 +29,17 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             }
         }
 
+        [HttpGet("health")]
+        public IActionResult HealthCheck()
+        {
+            return Ok(new { dllLoaded = _dllLoaded });
+        }
+
         [Microsoft.AspNetCore.Mvc.HttpGet(OcrNative.fn_GetTesseractVersion)]
         public string GetTesseractVersion()
         {
             string return_value_str = string.Empty;
-            IntPtr intptr = IntPtr.Zero;
+            IntPtr intptr           = IntPtr.Zero;
 
             try
             {
