@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ASP_NET_CORE_CPP_ENTRY</name>
+    </assembly>
+    <members>
+        <member name="M:ASP_NET_CORE_CPP_ENTRY.Controllers.OcrController.DoOcr(System.String)">
+            <summary>
+            Simulates OCR processing for the uploaded image.
+            </summary>
+            <param name="imagePath">The path to the uploaded image.</param>
+        </member>
+        <member name="T:Pruebas.Cliente.Controllers.UploadRequest">
+            <summary>
+            Represents the structure of the incoming JSON payload.
+            </summary>
+        </member>
+        <member name="M:Pruebas.Cliente.Interop.OcrNative._GetTesseractVersion">
+            GetTesseractVersion
+        </member>
+        <member name="M:Pruebas.Cliente.Interop.OcrNative._GetTesseractAppVersion">
+            GetTesseractAppVersion
+        </member>
+        <member name="M:Pruebas.Cliente.Interop.OcrNative._GetTesseractCPPSTDVersion">
+            GetTesseract_CPPSTDVersion
+        </member>
+        <member name="M:Pruebas.Cliente.Interop.OcrNative._GetTesseractOcrOutput">
+            _GetTesseractOcrOutput
+        </member>
+    </members>
+</doc>

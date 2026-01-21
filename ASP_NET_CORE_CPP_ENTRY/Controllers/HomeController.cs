@@ -14,6 +14,7 @@ namespace Pruebas.Cliente.Controllers
     {
         public string Base64Image { get; set; }
     }
+
     public class HomeController : Controller
     {
         #region "DLL WRAPPER FUNCTIONS "
