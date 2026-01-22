@@ -268,6 +268,7 @@ C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENT
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.runtimeconfig.json
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.pdb
+C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\asp_net_core_cpp_entry.xml
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\ClosedXML.dll
@@ -309,6 +310,7 @@ C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENT
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -330,6 +332,9 @@ C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENT
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\NuGet.Protocol.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\NuGet.Versioning.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\SixLabors.Fonts.dll
+C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\System.Composition.Convention.dll
@@ -346,6 +351,7 @@ C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENT
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\System.Runtime.Caching.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\XLParser.dll
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\af\Humanizer.resources.dll
@@ -503,6 +509,7 @@ C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENT
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.AssemblyInfoInputs.cache
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.AssemblyInfo.cs
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.csproj.CoreCompileInputs.cache
+C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.RazorAssemblyInfo.cache
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.RazorAssemblyInfo.cs
@@ -523,10 +530,3 @@ C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENT
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.pdb
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.genruntimeconfig.cache
 C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ref\ASP_NET_CORE_CPP_ENTRY.dll
-C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\System.Text.Json.dll
-C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\obj\Debug\net8.0\ASP_NET_CORE_CPP_ENTRY.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\pablo.perez\dev\_DotNet\ASP_NET_CORE_CPP_ENTRY\src\ASP_NET_CORE_CPP_ENTRY\bin\Debug\net8.0\asp_net_core_cpp_entry.xml

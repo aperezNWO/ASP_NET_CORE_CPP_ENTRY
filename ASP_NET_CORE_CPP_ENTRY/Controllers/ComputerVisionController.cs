@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pruebas.Cliente.Controllers;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using Pruebas.Cliente.Interop;
+using Pruebas.Cliente.Controllers;
 
 namespace ASP_NET_CORE_CPP_ENTRY.Controllers
 {
@@ -98,7 +98,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         ////////////////////////////////////////////////////////////
         // OPENCV READ IMAGE (PATH)
         ////////////////////////////////////////////////////////////
-
+        [HttpGet("_OpenCvReadImagePath")] // Explicit HTTP method
         public string _OpenCvReadImagePath()
         {
             string return_value_str = string.Empty;
