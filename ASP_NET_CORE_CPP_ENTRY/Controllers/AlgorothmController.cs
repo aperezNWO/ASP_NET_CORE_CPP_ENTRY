@@ -7,12 +7,12 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
 
     [ApiController]
     [Route("api/[controller]")]
-    public class AlgorothmController : ControllerBase
+    public class AlgorithmController : ControllerBase
     {
         #region "CONSTRUCTOR"
-        private readonly ILogger<AlgorothmController> _logger;
+        private readonly ILogger<AlgorithmController> _logger;
 
-        public AlgorothmController(ILogger<AlgorothmController> logger)
+        public AlgorithmController(ILogger<AlgorithmController> logger)
         {
             _logger = logger;
         }

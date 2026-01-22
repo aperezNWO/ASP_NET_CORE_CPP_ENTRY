@@ -42,15 +42,13 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
 }
 
-// Middleware Order
-if (app.Environment.IsDevelopment())
+
+app.UseSwagger(); // Serve Swagger JSON
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger(); // Serve Swagger JSON
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ASP_NET_CORE_CPP_ENTRY");
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "ASP_NET_CORE_CPP_ENTRY");
+});
+
 
 app.UseStaticFiles(); // Serve static files
 app.UseRouting(); // Required for endpoint routing
