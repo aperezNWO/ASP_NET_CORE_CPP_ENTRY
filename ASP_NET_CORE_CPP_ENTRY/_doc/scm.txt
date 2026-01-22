@@ -15,6 +15,6 @@ git pull
 
 (debe decir "Everything up to date)
 
-git add * && git commit -m"Application ASP_NET_CORE_CPP_ENTRY v[1.0.25]" -m"1) swagger " -a && git push && git pull
+git add * && git commit -m"Application ASP_NET_CORE_CPP_ENTRY v[1.0.26]" -m"1) swagger " -a && git push && git pull
 
 

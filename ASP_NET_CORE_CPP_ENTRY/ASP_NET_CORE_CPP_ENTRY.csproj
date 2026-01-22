@@ -5,8 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <PlatformTarget>x64</PlatformTarget>
-    <AssemblyVersion>1.0.25</AssemblyVersion>
-    <FileVersion>1.0.25</FileVersion>
+    <AssemblyVersion>1.0.26</AssemblyVersion>
+    <FileVersion>1.0.26</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>asp_net_core_cpp_entry.xml</DocumentationFile>

@@ -1,13 +1,14 @@
-﻿using System;
+﻿using ASP_NET_CORE_CPP_ENTRY.Interop;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 using System.Runtime.InteropServices;
 
 namespace Pruebas.Cliente.Interop
 {
-    public static class LinearRegressionNative
+    public class LinearRegressionNative : TensorFlowNative
     {
-        private const string DllName = @"TensorFlowAppCPP.dll";
 
-        [DllImport(DllName, EntryPoint = "Predict", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(tensorFlowDllName, EntryPoint = "Predict", CallingConvention = CallingConvention.Cdecl)]
         private static extern double Predict( double missionNumberToPredict);
 
         public static double TryPredict(double missionNumberToPredic)
@@ -19,7 +20,7 @@ namespace Pruebas.Cliente.Interop
             }
             catch (DllNotFoundException)
             {
-                Console.WriteLine($"❌ DLL '{DllName}' not found.");
+                Console.WriteLine($"❌ DLL '{tensorFlowDllName}' not found.");
 
                 return 0; 
             }
