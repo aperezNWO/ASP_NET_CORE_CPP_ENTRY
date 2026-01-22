@@ -6,8 +6,12 @@ namespace Pruebas.Cliente.Interop
 {
     public static class TicTacToeNative
     {
-        private const string DllName = @"TensorFlowAppCPP.dll"; // Or libtictactoe.so
 
+        #region "FIELDS"
+        private const string tensorFlowDllName = @"TensorFlowAppCPP.dll";
+        #endregion
+
+        #region "TICTACTOE"
         [StructLayout(LayoutKind.Sequential)]
         public unsafe struct TicTacToeResultOnline
         {
@@ -19,7 +23,7 @@ namespace Pruebas.Cliente.Interop
             public int historyCount;
         }
 
-        [DllImport(DllName, EntryPoint = "PlayTicTacToeGameWithHistory", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(tensorFlowDllName, EntryPoint = "PlayTicTacToeGameWithHistory", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool PlayGameInternal(
             ref TicTacToeResultOnline result,
@@ -35,7 +39,7 @@ namespace Pruebas.Cliente.Interop
             }
             catch (DllNotFoundException)
             {
-                Console.WriteLine($"❌ DLL '{DllName}' not found.");
+                Console.WriteLine($"❌ DLL '{tensorFlowDllName}' not found.");
                 return false;
             }
             catch (Exception ex)
@@ -44,5 +48,22 @@ namespace Pruebas.Cliente.Interop
                 return false;
             }
         }
+        #endregion
+
+        #region "TENSORFLOW"
+
+        // API VERSION
+        [DllImport(tensorFlowDllName, EntryPoint = @"GetTensorFlowAPIVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr _GetTensorflowAPIVersion();
+    
+        // APP VERSION
+        [DllImport(tensorFlowDllName, EntryPoint = @"GetTensorFlowAppVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr _GetTensorFlowAppVersion();
+   
+        // C++ STD VERSION
+        [DllImport(tensorFlowDllName, EntryPoint = @"GetCPPSTDVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr _TensorFlow_GetCPPSTDVersion();
+   
+        #endregion
     }
 }
