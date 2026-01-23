@@ -10,9 +10,12 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
     [Route("api/[controller]")]
     public class OcrController : ControllerBase
     {
+        #region "FIELDS"
         //
         private static bool _dllLoaded = false;
+        #endregion
 
+        #region "CONSTRUCTOR"
         //
         static OcrController()
         {
@@ -28,15 +31,14 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
 
             }
         }
+        #endregion
 
-        [HttpGet("health")]
-        public IActionResult HealthCheck()
-        {
-            return Ok(new { dllLoaded = _dllLoaded });
-        }
+        #region "METHODS"
 
-        [Microsoft.AspNetCore.Mvc.HttpGet(OcrNative.fn_GetTesseractVersion)]
-        public string GetTesseractVersion()
+   
+        #region "INative"
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetAPIVersion")]
+        public string GetAPIVersion()
         {
             string return_value_str = string.Empty;
             IntPtr intptr           = IntPtr.Zero;
@@ -44,7 +46,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             try
             {
                 // Call the external DLL function to get the result
-                intptr               = OcrNative._GetTesseractVersion();
+                intptr               = OcrNative.GetAPIVersion();
 
                 // Convert the IntPtr to a string
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
@@ -63,8 +65,8 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             return return_value_str;
         }
 
-        [Microsoft.AspNetCore.Mvc.HttpGet(OcrNative.fn_GetTesseractAppVersion)]
-        public string GetTesseractAppVersion()
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetAppVersion")]
+        public string GetAppVersion()
         {
             string return_value_str = string.Empty;
             IntPtr intptr = IntPtr.Zero;
@@ -72,7 +74,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             try
             {
                 // Call the external DLL function to get the result
-                intptr = OcrNative._GetTesseractAppVersion();
+                intptr = OcrNative.GetAppVersion();
 
                 // Convert the IntPtr to a string
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
@@ -91,8 +93,8 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             return return_value_str;
         }
 
-        [Microsoft.AspNetCore.Mvc.HttpGet(OcrNative.fn_GetTesseractCPPSTDVersion)]
-        public string GetTesseractCPPSTDVersion()
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetCPPSTDVersion")]
+        public string GetCPPSTDVersion()
         {
             string return_value_str = string.Empty;
             IntPtr intptr = IntPtr.Zero;
@@ -100,7 +102,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             try
             {
                 // Call the external DLL function to get the result
-                intptr = OcrNative._GetTesseractCPPSTDVersion();
+                intptr = OcrNative.GetCPPSTDVersion();
 
                 // Convert the IntPtr to a string
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
@@ -118,7 +120,17 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             }
             return return_value_str;
         }
+        #endregion
 
+        #region "DIAGNOSTICS"
+        [HttpGet("health")]
+        public IActionResult HealthCheck()
+        {
+            return Ok(new { dllLoaded = _dllLoaded });
+        }
+        #endregion
+
+        #region "OCR"
         [Microsoft.AspNetCore.Mvc.HttpGet(OcrNative.fn_GetTesseractOcrOutput)]
         public string GetTesseractOcrOutput()
         {
@@ -203,6 +215,8 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             // Implement your OCR logic here
             Console.WriteLine($"Processing OCR for image: {imagePath}");
         }
+        #endregion
 
+        #endregion
     }
 }

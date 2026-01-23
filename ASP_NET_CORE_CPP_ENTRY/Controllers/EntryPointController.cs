@@ -21,7 +21,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
-        [Microsoft.AspNetCore.Mvc.HttpGet("_GetAppVersion")]
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetAppVersion")]
         public string _GetAppVersion()
         {
             //--------------------------------------------------

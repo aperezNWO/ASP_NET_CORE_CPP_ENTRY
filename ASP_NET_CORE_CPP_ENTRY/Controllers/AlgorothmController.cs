@@ -10,16 +10,87 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
     [Route("api/[controller]")]
     public class AlgorithmController : ControllerBase
     {
+        #region "FIELDS"
+        private bool _dllLoaded = false;
+        #endregion
+
         #region "CONSTRUCTOR"
         private readonly ILogger<AlgorithmController> _logger;
 
         public AlgorithmController(ILogger<AlgorithmController> logger)
         {
-            _logger = logger;
-        }
-        #endregion 
 
-        #region "ALGORITHM"
+            try
+            {
+
+                this._logger = logger;
+                this._dllLoaded = true;
+                Console.WriteLine("✅ DLL loaded successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"❌ DLL load failed: {ex.Message}");
+
+            }
+        }
+        #endregion
+
+        #region "METHODS"
+
+        // GET DLL VERSION
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetAppVersion")]
+        public string GetDLLVersion()
+        {
+            //
+            string return_value_str = string.Empty;
+            //
+            try
+            {
+                IntPtr intptr = AlgorithmNative._GetDLLVersion();
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+                return_value_str = unicodeString;
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message + " " + ex.StackTrace;
+
+                // LogModel.Log(msg);
+            }
+            return return_value_str;
+        }
+
+        // GET C++ STD VERSION
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetCPPSTDVersion")]
+        public string GetCPPSTDVersion()
+        {
+            //
+            string return_value_str = string.Empty;
+            //
+            try
+            {
+                IntPtr intptr = AlgorithmNative._GetCPPSTDVersion();
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+                return_value_str = unicodeString;
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message + " " + ex.StackTrace;
+
+                // LogModel.Log(msg);
+            }
+            return return_value_str;
+        }
+
+
+        ////////////////////////////////////////////////////////////
+        // DIAGNOSTICS
+        ////////////////////////////////////////////////////////////
+
+        [HttpGet("health")]
+        public IActionResult HealthCheck()
+        {
+            return Ok(new { dllLoaded = _dllLoaded });
+        }
 
         // DIJKSTRA
         [Microsoft.AspNetCore.Mvc.HttpGet("GenerateRandomVertex_CPP")]
@@ -181,49 +252,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             return return_value_str;
         }
 
-        // GET DLL VERSION
-        [Microsoft.AspNetCore.Mvc.HttpGet("GetDLLVersion")]
-        public string GetDLLVersion()
-        {
-            //
-            string return_value_str = string.Empty;
-            //
-            try
-            {
-                IntPtr intptr        = AlgorithmNative._GetDLLVersion();
-                string unicodeString = Marshal.PtrToStringUTF8(intptr);
-                return_value_str     = unicodeString;
-            }
-            catch (Exception ex)
-            {
-                string msg = ex.Message + " " + ex.StackTrace;
 
-                // LogModel.Log(msg);
-            }
-            return return_value_str;
-        }
-
-        // GET C++ STD VERSION
-        [Microsoft.AspNetCore.Mvc.HttpGet("Algorithm_GetCPPSTDVersion")]
-        public string GetCPPSTDVersion()
-        {
-            //
-            string return_value_str = string.Empty;
-            //
-            try
-            {
-                IntPtr intptr        = AlgorithmNative._GetCPPSTDVersion();
-                string unicodeString = Marshal.PtrToStringUTF8(intptr);
-                return_value_str     = unicodeString;
-            }
-            catch (Exception ex)
-            {
-                string msg = ex.Message + " " + ex.StackTrace;
-
-                // LogModel.Log(msg);
-            }
-            return return_value_str;
-        }
         #endregion
 
     }

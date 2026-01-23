@@ -6,17 +6,19 @@ using System.Text.RegularExpressions;
 
 namespace Pruebas.Cliente.Interop
 {
-    public static class OcrNative
+    public static class OcrNative /* : INative */
     {
 
-        #region "TESSERACT"
+        #region "FIELDS"
         public const string dll_Tesseract                = "tesseract.dll";
         public const string fn_GetTesseractOcrOutput     = "GetTesseractOcrOutput";
         public const string fn_GetTesseractOcrOutputPath = "GetTesseractOcrOutputPath";
         public const string fn_GetTesseractVersion       = "GetTesseractVersion";
         public const string fn_GetTesseractAppVersion    = "GetTesseractAppVersion";
-        public const string fn_GetTesseractCPPSTDVersion = "GetTesseract_CPPSTDVersion";
+        public const string fn_GetTesseractCPPSTDVersion = "GetCPPSTDVersion";
+        #endregion
 
+        #region "METHODS"
         //////////////////////////////////////////////////////////////
         /// COMMON FUNCTION
         //////////////////////////////////////////////////////////////
@@ -25,22 +27,21 @@ namespace Pruebas.Cliente.Interop
         /// GetTesseractVersion
         //////////////////////////////////////////////////////////////
         [DllImport(@"" + dll_Tesseract + "", EntryPoint = @"" + fn_GetTesseractVersion + "", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr _GetTesseractVersion();
+        public static extern IntPtr GetAPIVersion();
 
         //////////////////////////////////////////////////////////////
         /// GetTesseractAppVersion
         //////////////////////////////////////////////////////////////
         [DllImport(@"" + dll_Tesseract + "", EntryPoint = @"" + fn_GetTesseractAppVersion + "", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr _GetTesseractAppVersion();
+        public static extern IntPtr GetAppVersion();
 
 
         //////////////////////////////////////////////////////////////
         /// GetTesseract_CPPSTDVersion
         //////////////////////////////////////////////////////////////
         [DllImport(@"" + dll_Tesseract + "", EntryPoint = @"" + fn_GetTesseractCPPSTDVersion + "", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr _GetTesseractCPPSTDVersion();
+        public static extern IntPtr GetCPPSTDVersion();
 
-   
 
         //////////////////////////////////////////////////////////////
         /// _GetTesseractOcrOutput

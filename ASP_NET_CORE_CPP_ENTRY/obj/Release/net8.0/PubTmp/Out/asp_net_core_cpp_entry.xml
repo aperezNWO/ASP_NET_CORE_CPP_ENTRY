@@ -15,13 +15,13 @@
             Represents the structure of the incoming JSON payload.
             </summary>
         </member>
-        <member name="M:Pruebas.Cliente.Interop.OcrNative._GetTesseractVersion">
+        <member name="M:Pruebas.Cliente.Interop.OcrNative.GetAPIVersion">
             GetTesseractVersion
         </member>
-        <member name="M:Pruebas.Cliente.Interop.OcrNative._GetTesseractAppVersion">
+        <member name="M:Pruebas.Cliente.Interop.OcrNative.GetAppVersion">
             GetTesseractAppVersion
         </member>
-        <member name="M:Pruebas.Cliente.Interop.OcrNative._GetTesseractCPPSTDVersion">
+        <member name="M:Pruebas.Cliente.Interop.OcrNative.GetCPPSTDVersion">
             GetTesseract_CPPSTDVersion
         </member>
         <member name="M:Pruebas.Cliente.Interop.OcrNative._GetTesseractOcrOutput">

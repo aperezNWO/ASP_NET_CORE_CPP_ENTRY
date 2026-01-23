@@ -3,13 +3,15 @@ using System.Runtime.InteropServices;
 
 namespace Pruebas.Cliente.Interop
 {
-    public static class ComputerVisionNative
+    public static class ComputerVisionNative /* : INative */
     {
+        #region "FIELDS"
         //
         public const string dll_OpenCv           = "OpenCvDll.dll";
         public const string endPoint_OpenCv      = "OpenCvReadImage";
-        public const string CPPSTDVersion_OpenCv = "OpenCv_GetCPPSTDVersion";
+        #endregion
 
+        #region "METHODS"
         // READ IMAGE
         [DllImport(dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr OpenCvReadImage();
@@ -29,5 +31,6 @@ namespace Pruebas.Cliente.Interop
         // API VERSION
         [DllImport(dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr GetOpenCvAPIVersion();
+        #endregion
     }
 }

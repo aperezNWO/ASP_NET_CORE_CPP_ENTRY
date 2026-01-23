@@ -10,9 +10,12 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
     [Route("api/[controller]")]
     public class ComputerVisionController : ControllerBase
     {
+        #region "FIELDS"
         //
         private static bool _dllLoaded = false;
+        #endregion
 
+        #region "CONSTRUCTOR"
         //
         static ComputerVisionController()
         {
@@ -28,7 +31,103 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
 
             }
         }
+        #endregion
 
+        #region "METHODS"
+        ////////////////////////////////////////////////////////////
+        // OPENCV GET APP VERSION
+        ////////////////////////////////////////////////////////////
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetAppVersion")]
+        public string GetAppVersion()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr = IntPtr.Zero;
+
+            try
+            {
+                // Call the external DLL function to get the result
+                intptr = ComputerVisionNative.GetOpenCvAppVersion();
+
+                // Convert the IntPtr to a string
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str = unicodeString;
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
+
+        ////////////////////////////////////////////////////////////
+        // OPENCV GET API VERSION
+        ////////////////////////////////////////////////////////////
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetAPIVersion")]
+        public string GetAPIVersion()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr = IntPtr.Zero;
+
+            try
+            {
+                // Call the external DLL function to get the result
+                intptr = ComputerVisionNative.GetOpenCvAPIVersion();
+
+                // Convert the IntPtr to a string
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str = unicodeString;
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
+
+        ////////////////////////////////////////////////////////////
+        // OPENCV GET CPP STD VERSION
+        ////////////////////////////////////////////////////////////
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetCPPSTDVersion")]
+        public string GetCPPSTDVersion()
+        {
+            string return_value_str = string.Empty;
+            IntPtr intptr = IntPtr.Zero;
+
+            try
+            {
+                // Call the external DLL function to get the result
+                intptr = ComputerVisionNative.OpenCv_GetCPPSTDVersion();
+
+                // Convert the IntPtr to a string
+                string unicodeString = Marshal.PtrToStringUTF8(intptr);
+
+                // Assign the result to the return value
+                return_value_str = unicodeString;
+
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                string msg = ex.Message + " " + ex.StackTrace;
+                return_value_str = msg;
+            }
+            return return_value_str;
+        }
+
+        ////////////////////////////////////////////////////////////
+        // DIAGNOSTICS
+        ////////////////////////////////////////////////////////////
 
         [HttpGet("health")]
         public IActionResult HealthCheck()
@@ -36,7 +135,9 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             return Ok(new { dllLoaded = _dllLoaded });
         }
 
-
+        ////////////////////////////////////////////////////////////
+        // OPENCV READ IMAGE (PATH)
+        ////////////////////////////////////////////////////////////
         [Microsoft.AspNetCore.Mvc.HttpGet(ComputerVisionNative.endPoint_OpenCv)]
         public string _OpenCvReadImage()
         {
@@ -65,39 +166,6 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             return return_value_str;
         }
 
-
-        [Microsoft.AspNetCore.Mvc.HttpGet(ComputerVisionNative.CPPSTDVersion_OpenCv)]
-        public string _OpenCv_GetCPPSTDVersion()
-        {
-            string return_value_str = string.Empty;
-            IntPtr intptr = IntPtr.Zero;
-
-            try
-            {
-                // Call the external DLL function to get the result
-                intptr = ComputerVisionNative.OpenCv_GetCPPSTDVersion();
-
-                // Convert the IntPtr to a string
-                string unicodeString = Marshal.PtrToStringUTF8(intptr);
-
-                // Assign the result to the return value
-                return_value_str     = unicodeString;
-
-
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions
-                string msg       = ex.Message + " " + ex.StackTrace;
-                return_value_str = msg;
-            }
-            return return_value_str;
-        }
-
-
-        ////////////////////////////////////////////////////////////
-        // OPENCV READ IMAGE (PATH)
-        ////////////////////////////////////////////////////////////
         [HttpGet("_OpenCvReadImagePath")] // Explicit HTTP method
         public string _OpenCvReadImagePath()
         {
@@ -183,71 +251,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         }
 
         ////////////////////////////////////////////////////////////
-        // OPENCV GET APP VERSION
-        ////////////////////////////////////////////////////////////
-
-
-        [Microsoft.AspNetCore.Mvc.HttpGet("GetOpenCvAppVersion")]
-        public string _GetOpenCvAppVersion()
-        {
-            string return_value_str = string.Empty;
-            IntPtr intptr = IntPtr.Zero;
-
-            try
-            {
-                // Call the external DLL function to get the result
-                intptr = ComputerVisionNative.GetOpenCvAppVersion();
-
-                // Convert the IntPtr to a string
-                string unicodeString = Marshal.PtrToStringUTF8(intptr);
-
-                // Assign the result to the return value
-                return_value_str = unicodeString;
-
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions
-                string msg = ex.Message + " " + ex.StackTrace;
-                return_value_str = msg;
-            }
-            return return_value_str;
-        }
-
-        ////////////////////////////////////////////////////////////
-        // OPENCV GET API VERSION
-        ////////////////////////////////////////////////////////////
-
-
-        [Microsoft.AspNetCore.Mvc.HttpGet("GetOpenCvAPIVersion")]
-        public string _GetOpenCvAPIVersion()
-        {
-            string return_value_str = string.Empty;
-            IntPtr intptr = IntPtr.Zero;
-
-            try
-            {
-                // Call the external DLL function to get the result
-                intptr = ComputerVisionNative.GetOpenCvAPIVersion();
-
-                // Convert the IntPtr to a string
-                string unicodeString = Marshal.PtrToStringUTF8(intptr);
-
-                // Assign the result to the return value
-                return_value_str = unicodeString;
-
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions
-                string msg = ex.Message + " " + ex.StackTrace;
-                return_value_str = msg;
-            }
-            return return_value_str;
-        }
-
-        ////////////////////////////////////////////////////////////
-        // OPENCV GENERATE FRACTAL JULIA
+        // OPENCV GENERATE FRACTAL JULIA (TEST)
         ////////////////////////////////////////////////////////////
         [DllImport(ComputerVisionNative.dll_OpenCv, CallingConvention = CallingConvention.StdCall)]
         private static extern int generateJulia();
@@ -310,6 +314,6 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             // Return the image as a response with the appropriate content type
             return File(imageBytes, "image/jpeg");
         }
-
+        #endregion
     }
 }
