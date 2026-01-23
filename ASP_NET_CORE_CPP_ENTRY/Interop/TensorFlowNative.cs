@@ -1,27 +1,20 @@
-﻿using System.Runtime.InteropServices;
+﻿using ASP_NET_CORE_CPP_ENTRY.Interface;
+using System.Runtime.InteropServices;
 
 namespace ASP_NET_CORE_CPP_ENTRY.Interop
 {
-    public class TensorFlowNative
+    public class TensorFlowNative /*: INative*/
     {
-        #region "FIELDS"
-        public const string tensorFlowDllName = @"TensorFlowAppCPP.dll";
-        #endregion
+        public const string DLL_NAME = @"TensorFlowAppCPP.dll";
 
-        #region "TENSORFLOW"
+        // Import TensorFlow-specific methods
+        [DllImport(DLL_NAME, EntryPoint = @"GetTensorFlowAPIVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr GetAPIVersion();
 
-        // API VERSION
-        [DllImport(tensorFlowDllName, EntryPoint = @"GetTensorFlowAPIVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern IntPtr _GetTensorflowAPIVersion();
+        [DllImport(DLL_NAME, EntryPoint = @"GetTensorFlowAppVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr GetAPPVersion();
 
-        // APP VERSION
-        [DllImport(tensorFlowDllName, EntryPoint = @"GetTensorFlowAppVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern IntPtr _GetTensorFlowAppVersion();
-
-        // C++ STD VERSION
-        [DllImport(tensorFlowDllName, EntryPoint = @"GetCPPSTDVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern IntPtr _TensorFlow_GetCPPSTDVersion();
-
-        #endregion
+        [DllImport(DLL_NAME, EntryPoint = @"GetCPPSTDVersion", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr GetCPPSTDVersion();
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Pruebas.Cliente.Interop;
 using System.Runtime.InteropServices;
 
+
 namespace ASP_NET_CORE_CPP_ENTRY.Controllers
 {
     [ApiController]
@@ -12,7 +13,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         #region "TENSORFLOW"
 
         // API VERSION
-        [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorFlowAPIVersion")]
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetAPIVersion")]
         public string GetTensorflowAPIVersion()
         {
             //
@@ -21,7 +22,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
             try
             {
 
-                IntPtr intptr        = TensorFlowNative._GetTensorflowAPIVersion();
+                IntPtr intptr        = TensorFlowNative.GetAPIVersion();
                 string unicodeString = Marshal.PtrToStringUTF8(intptr);
 
                 return_value_str     = unicodeString;
@@ -36,10 +37,10 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         }
 
         // APP VERSION
-        [Microsoft.AspNetCore.Mvc.HttpGet("GetTensorFlowAPPVersion")]
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetAppVersion")]
         public string GetTensorflowAPPVersion()
         {
-            IntPtr ptr = TensorFlowNative._GetTensorFlowAppVersion();
+            IntPtr ptr = TensorFlowNative.GetAPPVersion();
             if (ptr == IntPtr.Zero)
                 return null;
 
@@ -47,10 +48,10 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
         }
 
         // C++ STD VERSION
-        [Microsoft.AspNetCore.Mvc.HttpGet("TensorFlow_GetCPPSTDVersion")]
+        [Microsoft.AspNetCore.Mvc.HttpGet("GetCPPSTDVersion")]
         public string TensorFlow_GetCPPSTDVersion()
         {
-            IntPtr ptr = TensorFlowNative._TensorFlow_GetCPPSTDVersion();
+            IntPtr ptr = TensorFlowNative.GetCPPSTDVersion();
             if (ptr == IntPtr.Zero)
                 return null;
 

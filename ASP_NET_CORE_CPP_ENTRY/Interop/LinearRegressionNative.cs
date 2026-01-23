@@ -8,7 +8,7 @@ namespace Pruebas.Cliente.Interop
     public class LinearRegressionNative : TensorFlowNative
     {
 
-        [DllImport(tensorFlowDllName, EntryPoint = "Predict", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(DLL_NAME, EntryPoint = "Predict", CallingConvention = CallingConvention.Cdecl)]
         private static extern double Predict( double missionNumberToPredict);
 
         public static double TryPredict(double missionNumberToPredic)
@@ -20,7 +20,7 @@ namespace Pruebas.Cliente.Interop
             }
             catch (DllNotFoundException)
             {
-                Console.WriteLine($"❌ DLL '{tensorFlowDllName}' not found.");
+                Console.WriteLine($"❌ DLL '{DLL_NAME}' not found.");
 
                 return 0; 
             }

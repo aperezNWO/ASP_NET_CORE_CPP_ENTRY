@@ -20,7 +20,7 @@ namespace Pruebas.Cliente.Interop
             public int historyCount;
         }
 
-        [DllImport(tensorFlowDllName, EntryPoint = "PlayTicTacToeGameWithHistory", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(DLL_NAME, EntryPoint = "PlayTicTacToeGameWithHistory", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool PlayGameInternal(
             ref TicTacToeResultOnline result,
@@ -36,7 +36,7 @@ namespace Pruebas.Cliente.Interop
             }
             catch (DllNotFoundException)
             {
-                Console.WriteLine($"❌ DLL '{tensorFlowDllName}' not found.");
+                Console.WriteLine($"❌ DLL '{DLL_NAME}' not found.");
                 return false;
             }
             catch (Exception ex)
