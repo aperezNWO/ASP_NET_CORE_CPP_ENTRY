@@ -239,7 +239,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
 
                 // Call the OCR function
                 IntPtr intptr        = ComputerVisionNative.OpenCvReadImagePath(filePath);
-                string unicodeString = string.Format("Detected Shapes : {0}", Marshal.PtrToStringUTF8(intptr));
+                string unicodeString = string.Format("Detected Shapes from C++ : {0}", Marshal.PtrToStringUTF8(intptr));
 
                 return Ok(new { Message = unicodeString, FilePath = filePath });
             }
