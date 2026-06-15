@@ -1,5 +1,4 @@
-﻿using ASP_NET_CORE_CPP_ENTRY.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pruebas.Cliente.Interop;
 using System.Runtime.InteropServices;
 
