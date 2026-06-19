@@ -18,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 32,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "scm.txt",
+              "DocumentMoniker": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
+              "RelativeDocumentMoniker": "ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
+              "ToolTip": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
+              "RelativeToolTip": "ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAADkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-06-19T05:35:56.2Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -154,19 +167,6 @@
               "RelativeToolTip": "ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-06-19T04:54:03.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "scm.txt",
-              "DocumentMoniker": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
-              "RelativeDocumentMoniker": "ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
-              "ToolTip": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
-              "RelativeToolTip": "ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABwAAABtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-06-19T04:49:40.649Z",
               "EditorCaption": ""
             }
           ]

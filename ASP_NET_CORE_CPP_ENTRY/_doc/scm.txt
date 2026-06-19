@@ -53,8 +53,8 @@ C:\Users\pablo.perez\dev\iis\ZIP\ASP_NET_CORE_CPP_ENTRY
 
 https://admin.monsterasp.net/app/dashboard
 
-# SITE :
-asp-net-core-csharp-demo.tryasp.net [site51253]
+# SITE : tensorflownetcore64.tryasp.net [site22135]
+https://admin.monsterasp.net/app/site/site/info?guid=4e0764e9-a328-4320-bd5c-1320ca11c388
 
 ## CPUBLISH ZIP -- PREVIOUS TO STOP SITE - WWWROOT FOLDER
 
