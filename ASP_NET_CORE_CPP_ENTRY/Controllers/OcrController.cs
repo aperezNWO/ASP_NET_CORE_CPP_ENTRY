@@ -195,7 +195,7 @@ namespace ASP_NET_CORE_CPP_ENTRY.Controllers
 
                 // Call the OCR function
                 IntPtr intptr        = OcrNative._GetTesseractOcrOutputPath(filePath);
-                string unicodeString = string.Format("Text from image : {0}", Marshal.PtrToStringUTF8(intptr));
+                string unicodeString = string.Format("Detected Text from C++ : {0}", Marshal.PtrToStringUTF8(intptr));
 
                 return Ok(new { Message = unicodeString, FilePath = filePath });
             }

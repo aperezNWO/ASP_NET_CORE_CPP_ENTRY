@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASP_NET_CORE_CPP_ENTRY")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.31")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e294b7455d7bb5c2cadcf4015cb6926cadbf84ae")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.32")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b3a154db0c5361c75574d7ee67176a117ed9d53")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASP_NET_CORE_CPP_ENTRY")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASP_NET_CORE_CPP_ENTRY")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.31")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.32")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 
