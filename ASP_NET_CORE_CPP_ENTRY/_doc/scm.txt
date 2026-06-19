@@ -25,8 +25,7 @@ git commit -m"second commit"
 git push
 git pull
 
-
-## commit repostory after save local changes and publish - MUST CLOSE VISUAL STUDIO AND EXECUTE COMMAND LINE 
+## commit repostory after save local changes and [publish local] - MUST CLOSE VISUAL STUDIO AND EXECUTE COMMAND LINE 
 
 git add * && git commit -m"Application ASP_NET_CORE_CPP_ENTRY v[1.0.32]" -m"1) Tesseract for C++ message modified" -a && git push && git pull
 
@@ -56,9 +55,17 @@ https://admin.monsterasp.net/app/dashboard
 # SITE : tensorflownetcore64.tryasp.net [site22135]
 https://admin.monsterasp.net/app/site/site/info?guid=4e0764e9-a328-4320-bd5c-1320ca11c388
 
-## CPUBLISH ZIP -- PREVIOUS TO STOP SITE - WWWROOT FOLDER
+## PUBLISH ZIP -- PREVIOUS TO STOP SITE - WWWROOT FOLDER
 
+## option 1 - webftp
 https://webftp.monsterasp.net/mftp/
+
+## option 2 - filezilla
+server : site22135.siteasp.net
+user   : site22135
+pwd    : S=i2!8FoL+w4
+port   : 21
+
 
 ## START SITE
 
