@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj": {}
+    "D:\\usuarios\\pabloperez\\dev\\dotnet\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj": {
+    "D:\\usuarios\\pabloperez\\dev\\dotnet\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+        "projectUniqueName": "D:\\usuarios\\pabloperez\\dev\\dotnet\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
         "projectName": "ASP_NET_CORE_CPP_ENTRY",
-        "projectPath": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
-        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pablo.perez\\dev\\_DotNet\\ASP_NET_CORE_CPP_ENTRY\\src\\ASP_NET_CORE_CPP_ENTRY\\obj\\",
+        "projectPath": "D:\\usuarios\\pabloperez\\dev\\dotnet\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+        "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
+        "outputPath": "D:\\usuarios\\pabloperez\\dev\\dotnet\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,11 +26,11 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -44,10 +44,12 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "ClosedXML": {
@@ -122,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,6 +1,22 @@
 ####################################################################################
-# SCM 
+##                                  SCM                                           ## 
+####################################################################################
+
+####################################################################################
+# INSTALL 
 #####################################################################################
+
+--[_] VISUAL STUDIO COMMUNITY EDITION
+
+	--[_] https://visualstudio.microsoft.com/es/vs/community/
+
+--[_] IIS FOR WINDOWS 11
+
+	--[_] add / remove windows features.
+
+	--[_] asp.net core iis bundle
+
+	--[_] https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/hosting-bundle?view=aspnetcore-10.0
 
 ####################################################################################
 # GIT  
@@ -18,7 +34,7 @@ git push -u origin main
 
 (despues de agregar nuevos archivos)
 
-## commit repostory long version - outside visual studio communit - use command line
+## commit repostory long version - ****outside visual studio community *** - use command line
 
 git add * 
 git commit -m"second commit"
@@ -27,7 +43,7 @@ git pull
 
 ## commit repostory after save local changes and [publish local] - MUST CLOSE VISUAL STUDIO AND EXECUTE COMMAND LINE 
 
-git add * && git commit -m"Application ASP_NET_CORE_CPP_ENTRY v[1.0.32]" -m"1) Tesseract for C++ message modified" -a && git push && git pull
+git add * && git commit -m"Application ASP_NET_CORE_CPP_ENTRY v[1.0.33]" -m"1) DELL VOSTRO working folder update" -a && git push && git pull
 
 (debe decir "Everything up to date)
 
@@ -37,7 +53,7 @@ git add * && git commit -m"Application ASP_NET_CORE_CPP_ENTRY v[1.0.32]" -m"1) T
 #####################################################################################
 
 ## MODIFY VERSION number 
-[1.0.32]
+[1.0.33]
 
 ## publish -INCLUDING c++ MODIIED FILES IF APPLY
 C:\Users\pablo.perez\dev\iis\ASP_NET_CORE_CPP_ENTRY\Publish
