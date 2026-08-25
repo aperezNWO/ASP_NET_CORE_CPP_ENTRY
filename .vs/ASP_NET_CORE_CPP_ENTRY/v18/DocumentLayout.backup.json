@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\usuarios\\pabloperez\\dev\\dotnet\\ASP_NET_CORE_CPP_ENTRY\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|d:\\usuarios\\pabloperez\\dev\\dotnet\\asp_net_core_cpp_entry\\asp_net_core_cpp_entry\\asp_net_core_cpp_entry.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|solutionrelative:asp_net_core_cpp_entry\\asp_net_core_cpp_entry.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|d:\\usuarios\\pabloperez\\dev\\dotnet\\asp_net_core_cpp_entry\\asp_net_core_cpp_entry\\_doc\\scm.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{5866AD3D-03D3-412D-95F6-CD59C69B17EE}|ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj|solutionrelative:asp_net_core_cpp_entry\\_doc\\scm.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -22,6 +26,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ASP_NET_CORE_CPP_ENTRY",
+              "DocumentMoniker": "D:\\usuarios\\pabloperez\\dev\\dotnet\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "RelativeDocumentMoniker": "ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "ToolTip": "D:\\usuarios\\pabloperez\\dev\\dotnet\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "RelativeToolTip": "ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-25T09:45:50.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "scm.txt",
               "DocumentMoniker": "D:\\usuarios\\pabloperez\\dev\\dotnet\\ASP_NET_CORE_CPP_ENTRY\\ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
               "RelativeDocumentMoniker": "ASP_NET_CORE_CPP_ENTRY\\_doc\\scm.txt",
@@ -34,7 +50,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "web.config",
               "DocumentMoniker": "D:\\usuarios\\pabloperez\\dev\\dotnet\\IIS\\ASP_NET_CORE_CPP_ENTRY\\web.config",
               "RelativeDocumentMoniker": "..\\IIS\\ASP_NET_CORE_CPP_ENTRY\\web.config",
@@ -42,8 +58,7 @@
               "RelativeToolTip": "..\\IIS\\ASP_NET_CORE_CPP_ENTRY\\web.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-08-25T09:13:16.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-25T09:13:16.01Z"
             }
           ]
         }
